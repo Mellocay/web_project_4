@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
   <title>Around the US</title>
 </head>
-<body>
+<body class="root">
   <header class="header">
     <img src="./images/logo.svg" alt="Around the US Logo" class="header__logo">
   </header>
   <section class="profile">
-    <div class="avitar"></div>
+    <div class="profile__image"></div>
     <div class="profile__info">
       <button class="button_edit"></button>
       <h2 class="profile__name">Jacques Cousteau</h2>
@@ -19,7 +20,7 @@
     <button class="button_add"></button>
   </section>
   <main class="gallery">
-    <ul>
+    <ul class="gallery__items">
       <li class="gallery__item">
         <img src="./images/oregon-sky.jpg" alt="Beautiful Oregon Sky at Night" class="gallery__image">
         <div class="gallery__base">
