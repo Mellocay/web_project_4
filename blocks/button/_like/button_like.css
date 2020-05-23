@@ -1,0 +1,10 @@
+.button_like {
+  display: flex;
+  justify-self: flex-end;
+  margin: 30px 21px 0 0;
+  width: 20.76px;
+  height: 18.13px;
+  border: none;
+  padding: 0;
+  background-color: white;
+}

@@ -1,0 +1,14 @@
+.gallery__item {
+  border-radius: 10px;
+  width: 282px;
+  background-color: white;
+  margin: 0 18px 21px 0;
+}
+
+.gallery__item:nth-child(3) {
+  margin-right: 0;
+}
+
+.gallery__item:last-child {
+  margin-right: 0;
+}

@@ -1,0 +1,22 @@
+@import url(./__image/profile__image.css);
+@import url(./__name/profile__name.css);
+@import url(./__ocupation/profile__ocupation.css);
+@import url(./__info/profile__info.css);
+
+.profile {
+  margin: 40px auto 51px;
+  max-width: 882px;
+  color: white;
+  display: grid;
+  grid-template-columns: auto auto 178px 150px;
+  grid-template-rows: 1fr;
+}
+
+@media screen and (min-width: 0) and (max-width: 425px) {
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 36px auto;
+  }
+}
