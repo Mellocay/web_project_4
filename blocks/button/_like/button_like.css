@@ -9,6 +9,13 @@
   background-color: white;
 }
 
+.button_like {
+  background-image: url(../../../images/heart.svg);
+}
+.button_like:hover {
+  background-image: url(../../../images/heart_hover.svg);
+}
+
 @media screen and (min-width: 0) and (max-width: 607px) {
   .button_like {
     margin-top: 25px;
