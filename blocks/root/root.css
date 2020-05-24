@@ -5,3 +5,9 @@
   font-family: "Inter", sans-serif;
   font-style: normal;
 }
+
+@media screen and (min-width: 0) and (max-width: 425px) {
+  .root {
+    min-width: 300;
+    margin: 28px auto 36px auto;
+  }
