@@ -7,9 +7,10 @@
   margin: 0 30px 0 0;
 }
 
-@media screen and (min-width: 0) and (max-width: 425px) {
+@media screen and (min-width: 0) and (max-width: 607px) {
   .profile__image {
+    grid-column: 1 / span 2;
+    justify-self: center;
     margin-right: 0;
-  }
   }
 }

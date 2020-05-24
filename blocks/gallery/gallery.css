@@ -3,6 +3,7 @@
 @import url(./__image/gallery__image.css);
 @import url(./__base/gallery__base.css);
 @import url(./__title/gallery__title.css);
+@import url(./__title/gallery__title_line_double.css);
 
 .gallery {
   max-width: 882px;

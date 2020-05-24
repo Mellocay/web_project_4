@@ -1,0 +1,6 @@
+@media screen and (min-width: 0) and (max-width: 607px) {
+  .button_edit-image {
+    width: 7.5px;
+    height: 7.5px;
+  }
+}

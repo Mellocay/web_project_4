@@ -1,5 +1,7 @@
 @import url(./_edit/button_edit.css);
+@import url(./_edit/button_edit-image.css);
 @import url(./_add/button_add.css);
+@import url(./_add/button_add-image.css);
 @import url(./_like/button_like.css);
 
 .button {

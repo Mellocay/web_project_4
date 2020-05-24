@@ -11,3 +11,11 @@
     margin-right: 15px;
   }
 }
+
+@media screen and (min-width: 0) and (max-width: 607px) {
+  .button_edit {
+    margin: 30px 15px 0 0;
+    width: 18px;
+    height: 18px;
+  }
+}

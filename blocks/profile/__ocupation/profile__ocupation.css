@@ -4,11 +4,16 @@
   margin: 0;
 }
 
-@media screen and (min-width: 0) and (max-width: 425px) {
+@media screen and (min-width: 0) and (max-width: 898px) {
   .profile__ocupation {
     font-size: 14px;
     line-height: 17px;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 607px) {
+  .profile__ocupation {
     text-align: center;
-    margin: 0;
+    margin-left: 30px;
   }
 }

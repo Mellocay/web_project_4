@@ -8,3 +8,9 @@
   padding: 0;
   background-color: white;
 }
+
+@media screen and (min-width: 0) and (max-width: 607px) {
+  .button_like {
+    margin-top: 25px;
+  }
+}
