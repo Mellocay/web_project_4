@@ -10,7 +10,6 @@
 }
 
 @media screen and (min-width: 608px) and (max-width: 898px) {
- 
   .gallery__item:nth-child(2n) {
     margin-right: 0;
   }
@@ -23,7 +22,6 @@
 }
 
 @media screen and (min-width: 0) and (max-width: 607px) {
-  
   .gallery__item {
     margin: 0 10px 20px;
   }
