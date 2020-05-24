@@ -7,7 +7,92 @@
 @import url(../blocks/gallery/gallery.css);
 @import url(../blocks/footer/footer.css);
 
-@media screen and (min-width: px) and (max-width: 905px) {
+/*.popup__background_active(root) {
+  background-color: black;
+  opacity: 0.5;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}*/
 
+.popup__background_active {
+  display: block;
 }
+
+.popup {
+  display: grid;
+  grid-template-columns: 430px 41px;
+  grid-template-rows: 41px 330px;
+  z-index: 2;
+  position: fixed;
+  left: calc((100% / 2) - (430px / 2));
+  top: calc((100% / 2) - (330px / 2));
+  z-index: 2;
+}
+
+.button_close {
+  width: 41px;
+  height: 41px;
+  background-color: black;
+  border: none;
+  background-image: url(../images/close-x.svg);
+  background-position: center;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.popup__form {
+  width: 430px;
+  height: 330px;
+  background-color: white;
+  color: black;
+  grid-column: 1;
+  grid-row: 2;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.popup__title {
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 36px auto 0;
+  width: 358px;
+}
+
+.popup__input {
+  width: 358px;
+  font-size: 14px;
+  line-height: 17px;
+  height: 26px;
+  border:none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: none;
+  margin: 37px 36px 30px;
+}
+
+.popup__input:last-of-type {
+  margin: 0 36px;
+}
+
+.button_save {
+  width: 358px;
+  height: 50.15px;
+  background: black;
+  border-radius: 2px;
+  color: white;
+  margin: 48px 36px 36px;
+}
+
+.button__text {
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
 

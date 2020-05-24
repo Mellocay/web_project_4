@@ -6,10 +6,6 @@
   border: 1px solid #FFFFFF;
 }
 
-.button_edit:hover {
-  opacity: .6;
-}
-
 @media screen and (min-width: 608px) and (max-width: 898px) {
   .button_edit {
     margin-right: 15px;
