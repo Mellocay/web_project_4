@@ -2,24 +2,21 @@
 
 ### Overview
 
-* Figma
-* Images
+This website contains pictures of Oregon and an editable profile.
+
+* [Here's a link to my project](https://mellocay.github.io/web_project_4/)
 
 **Figma**
 
-* [Link to the project in Figma](https://www.figma.com/file/mUgu8OSHWE0M6p6vfwmdu9/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
+I formatted this project according to the [Figma brief.](https://www.figma.com/file/mUgu8OSHWE0M6p6vfwmdu9/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
 
-**Images**
+**JavaScript**
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
+For this project I had to learn how to use variables, querySelector, functions, textContent, and how to change values.
 
-Have fun with JavaScript!
+**Conclusion**
 
-https://unsplash.com/ for images
+Thank you for reading and enjoy the site.
 
 
-The README.md file contains:
-the project's name;
-a description of the project and its functionality;
-a description of technologies and techniques used.
-the link to GitHub Pages
+

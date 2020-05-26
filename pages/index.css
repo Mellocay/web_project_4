@@ -24,11 +24,9 @@
   display: grid;
   grid-template-columns: 430px 41px;
   grid-template-rows: 41px 330px;
-  z-index: 2;
   position: fixed;
   left: calc((100% / 2) - (430px / 2));
   top: calc((100% / 2) - (330px / 2));
-  z-index: 2;
 }
 
 .button_close {
@@ -80,8 +78,8 @@
   width: 358px;
   height: 50.15px;
   background: #000;
+  border: solid;
   border-radius: 2px;
-  color: #fff;
   margin: 48px 36px 36px;
 }
 
@@ -91,6 +89,53 @@
   text-align: center;
   margin: 0 auto;
   padding: 0;
+  color: #fff;
 }
 
+@media screen and (min-width: 0) and (max-width: 550px) {
+  .popup__container {
+    width: 265px;
+    height: 283px;
+    left: calc((100% / 2) - (265px / 2));
+    top: calc((100% / 2) - (283px / 2));
+    grid-template-columns: 240px 25px;
+    grid-template-rows: 25px 258px;
+  }
+}
 
+@media screen and (min-width: 0) and (max-width: 550px) {
+  .button_close {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 550px) {
+  .popup__form {
+    width: 240px;
+    height: 258px;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 550px) {
+.button_save {
+    width: 169px;
+    height: 30px;
+    margin: 34px 36px 24px;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 550px) {
+.popup__input {
+    width: 169px;
+    height: 30px;
+    margin: 24px 36px 20px;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 550px) {
+.popup__title {
+    width: 169px;
+    margin: 24px 36px 0;
+  }
+}
