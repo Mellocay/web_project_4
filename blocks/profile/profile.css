@@ -7,13 +7,13 @@
   max-width: 882px;
   color: white;
   display: grid;
-  grid-template-columns: auto auto 178px 150px;
+  grid-template-columns: 150px auto 178px 150px;
   grid-template-rows: 1fr;
 }
 
 @media screen and (min-width: 608px) and (max-width: 898px) {
   .profile {
-    grid-template-columns: auto auto auto 150px;
+    grid-template-columns: 150px auto auto 150px;
     max-width: 585px;
   }
 }
