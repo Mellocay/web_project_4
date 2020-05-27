@@ -3,6 +3,9 @@
 @import url(./_add/button_add.css);
 @import url(./_add/button_add-image.css);
 @import url(./_like/button_like.css);
+@import url(./_close/button_close.css);
+@import url(./_save/button_save.css);
+@import url(./__text/button__text.css);
 
 .button {
   padding: 0;

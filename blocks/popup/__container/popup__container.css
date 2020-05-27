@@ -1,0 +1,19 @@
+.popup__container {
+  display: grid;
+  grid-template-columns: 430px 41px;
+  grid-template-rows: 41px 330px;
+  position: fixed;
+  left: calc((100% / 2) - (430px / 2));
+  top: calc((100% / 2) - (330px / 2));
+}
+
+@media screen and (min-width: 0) and (max-width: 550px) {
+  .popup__container {
+    width: 265px;
+    height: 283px;
+    left: calc((100% / 2) - (265px / 2));
+    top: calc((100% / 2) - (283px / 2));
+    grid-template-columns: 240px 25px;
+    grid-template-rows: 25px 258px;
+  }
+}

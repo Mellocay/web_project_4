@@ -12,7 +12,7 @@ I formatted this project according to the [Figma brief.](https://www.figma.com/f
 
 **JavaScript**
 
-For this project I had to learn how to use variables, querySelector, functions, textContent, and how to change values.
+For this project I had to learn how to use const, querySelector, functions, textContent, toggle classes, and how to change values.
 
 **Conclusion**
 

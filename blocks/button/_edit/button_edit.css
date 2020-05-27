@@ -9,7 +9,6 @@
 @media screen and (min-width: 608px) and (max-width: 898px) {
   .button_edit {
     margin-right: 15px;
-    justify-self: flex-end;
   }
 }
 
