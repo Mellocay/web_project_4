@@ -1,10 +1,10 @@
-@import url(./__container/popup__container.css);
-@import url(./__form/popup__form.css);
-@import url(./__title/popup__title.css);
-@import url(./__input/popup__input.css);
+@import url('./__container/popup__container.css');
+@import url('./__form/popup__form.css');
+@import url('./__title/popup__title.css');
+@import url('./__input/popup__input.css');
 
 .popup {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, .5);
   position: fixed;
   left: 0;
   top: 0;

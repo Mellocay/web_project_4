@@ -1,15 +1,11 @@
 const profileName = document.querySelector(".profile__name");
 const profileOccupation = document.querySelector(".profile__occupation");
-const buttonEdit = document.querySelector(".button_edit");
+const buttonEdit = document.querySelector(".button__edit");
 const popup = document.querySelector(".popup");
-const buttonClose = document.querySelector(".button_close");
+const buttonClose = document.querySelector(".button__close");
 const form = document.querySelector(".popup__form");
 const inputName = document.querySelector(".popup__input_name");
-const name = inputName.value;
 const inputOccupation = document.querySelector(".popup__input_occupation");
-const occupation = inputOccupation.value;
-const buttonSave = document.querySelector(".button_save");
-
 
 function popUnpop () {
   popup.classList.toggle("popup_active");

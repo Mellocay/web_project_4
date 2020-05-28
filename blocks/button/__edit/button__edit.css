@@ -1,19 +1,22 @@
-.button_edit {
+.button__edit {
   width: 24px;
   height: 24px;
   background-color: black;
   margin: 37px 0 0 0;
   border: 1px solid #FFFFFF;
+  background-image: url("../../../images/edit-button.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 @media screen and (min-width: 608px) and (max-width: 898px) {
-  .button_edit {
+  .button__edit {
     margin-right: 15px;
   }
 }
 
 @media screen and (min-width: 0) and (max-width: 607px) {
-  .button_edit {
+  .button__edit {
     margin: 30px 15px 0 0;
     width: 18px;
     height: 18px;

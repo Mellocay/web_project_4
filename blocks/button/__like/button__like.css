@@ -1,4 +1,4 @@
-.button_like {
+.button__like {
   display: flex;
   justify-self: flex-end;
   margin: 30px 21px 0 0;
@@ -6,18 +6,16 @@
   height: 18.13px;
   border: none;
   padding: 0;
-  background-color: white;
-}
-
-.button_like {
+  background-color: #fff;
   background-image: url(../../../images/heart.svg);
 }
-.button_like:hover {
+
+.button__like:hover {
   background-image: url(../../../images/heart_hover.svg);
 }
 
 @media screen and (min-width: 0) and (max-width: 607px) {
-  .button_like {
+  .button__like {
     margin-top: 25px;
   }
 }

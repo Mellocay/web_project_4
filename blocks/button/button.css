@@ -1,11 +1,9 @@
-@import url(./_edit/button_edit.css);
-@import url(./_edit/button_edit-image.css);
-@import url(./_add/button_add.css);
-@import url(./_add/button_add-image.css);
-@import url(./_like/button_like.css);
-@import url(./_close/button_close.css);
-@import url(./_save/button_save.css);
-@import url(./__text/button__text.css);
+@import url('./__edit/button__edit.css');
+@import url('./__add/button__add.css');
+@import url('./__like/button__like.css');
+@import url('./__close/button__close.css');
+@import url('./__save/button__save.css');
+@import url('./__text/button__text.css');
 
 .button {
   padding: 0;

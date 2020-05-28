@@ -1,4 +1,5 @@
 .gallery__title {
+  max-width: 205px;
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
@@ -6,4 +7,7 @@
   justify-self: flex-start;
   align-self: center;  
   margin: 25px 0 25px 21px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;/*Dear reviewer, why is the ellipsis not working?*/
 }

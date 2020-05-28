@@ -16,8 +16,8 @@
         <h2 class="profile__name">Jacques Cousteau</h2>
         <p class="profile__occupation">Explorer</p>
       </div>
-      <button class="button button_edit"><img src="./images/edit-button.svg" alt="pencil edit image" class="button_edit-image"></button>
-      <button class="button button_add"><img src="./images/add-button.svg" alt="addition sign" class="button_add-image"></button>
+      <button class="button button__edit"></button>
+      <button class="button button__add"></button>
     </section>
     <main class="gallery">
       <ul class="gallery__items">
@@ -25,50 +25,54 @@
           <img src="./images/oregon-sky.jpg" alt="Beautiful Oregon Sky at Night" class="gallery__image">
           <div class="gallery__base">
             <h3 class="gallery__title">Oregon Night Sky</h3>
-            <button class="button button_like"></button>
+            <button class="button button__like"></button>
+          </div>
         </li>
         <li class="gallery__item">
           <img src="./images/haystack-rock.jpg" alt="Haystack Rock, Cannon Beach, Oregon" class="gallery__image">
           <div class="gallery__base">
-            <h3 class="gallery__title gallery__title_line_double">Haystack Rock, Oregon</h3>
-            <button class="button button_like"></button>
+            <h3 class="gallery__title">Haystack Rock, Oregon</h3>
+            <button class="button button__like"></button>
+          </div>
         </li>
         <li class="gallery__item">
           <img src="./images/crater-lake.jpg" alt="Crater Lake, Oregon" class="gallery__image">
           <div class="gallery__base">
-            <h3 class="gallery__title gallery__title_line_double">Crater Lake, Oregon</h3>
-            <button class="button button_like"></button>
+            <h3 class="gallery__title">Crater Lake, Oregon</h3>
+            <button class="button button__like"></button>
+          </div>
         </li>
         <li class="gallery__item">
           <img src="./images/mt-hood.jpg" alt="Majestic Mt. Hood, Oregon" class="gallery__image">
           <div class="gallery__base">
             <h3 class="gallery__title">Mt. Hood, Oregon</h3>
-            <button class="button button_like"></button>
+            <button class="button button__like"></button>
+          </div>
         </li>
         <li class="gallery__item">
           <img src="./images/multnomah-falls.jpg" alt="Multnomah Falls, Oregon, Large Waterfall with Bridge" class="gallery__image">
           <div class="gallery__base">
-            <h3 class="gallery__title gallery__title_line_double">Multnomah Falls, Oregon</h3>
-            <button class="button button_like"></button>
+            <h3 class="gallery__title">Multnomah Falls, Oregon</h3>
+            <button class="button button__like"></button>
+          </div>
         </li>
         <li class="gallery__item">
           <img src="./images/ecola-park.jpg" alt="Forest in Ecola State Park, Oregon" class="gallery__image">
           <div class="gallery__base">
-            <h3 class="gallery__title gallery__title_line_double">Ecola Park, Oregon</h3>
-            <button class="button button_like"></button>
+            <h3 class="gallery__title">Ecola Park, Oregon</h3>
+            <button class="button button__like"></button>
+          </div>
         </li>
       </ul>
     </main>
     <section class="popup popup_active">
       <div class="popup__container">
-        <button class="button button_close"></button>
+        <button class="button button__close"></button>
         <form class="popup__form">
           <h2 class="popup__title">Edit profile</h2>
           <input type="text" value="Jacques Cousteau" class="popup__input popup__input_name" name="name">
           <input type="text" value="Explorer" class="popup__input popup__input_occupation" name="occupation">
-          <button type="submit" class="button button_save">
-            <p class="button__text">Save</p>
-          </button>
+          <button type="submit" class="button button__save">Save</button>
         </form>
       </div>
     </section>
