@@ -21,48 +21,6 @@
     </section>
     <main class="gallery">
       <ul class="gallery__items">
-        <li class="gallery__item">
-          <img src="./images/oregon-sky.jpg" alt="Beautiful Oregon Sky at Night" class="gallery__image">
-          <div class="gallery__base">
-            <h3 class="gallery__title">Oregon Night Sky</h3>
-            <button class="button button__like"></button>
-          </div>
-        </li>
-        <li class="gallery__item">
-          <img src="./images/haystack-rock.jpg" alt="Haystack Rock, Cannon Beach, Oregon" class="gallery__image">
-          <div class="gallery__base">
-            <h3 class="gallery__title">Haystack Rock, Oregon</h3>
-            <button class="button button__like"></button>
-          </div>
-        </li>
-        <li class="gallery__item">
-          <img src="./images/crater-lake.jpg" alt="Crater Lake, Oregon" class="gallery__image">
-          <div class="gallery__base">
-            <h3 class="gallery__title">Crater Lake, Oregon</h3>
-            <button class="button button__like"></button>
-          </div>
-        </li>
-        <li class="gallery__item">
-          <img src="./images/mt-hood.jpg" alt="Majestic Mt. Hood, Oregon" class="gallery__image">
-          <div class="gallery__base">
-            <h3 class="gallery__title">Mt. Hood, Oregon</h3>
-            <button class="button button__like"></button>
-          </div>
-        </li>
-        <li class="gallery__item">
-          <img src="./images/multnomah-falls.jpg" alt="Multnomah Falls, Oregon, Large Waterfall with Bridge" class="gallery__image">
-          <div class="gallery__base">
-            <h3 class="gallery__title">Multnomah Falls, Oregon</h3>
-            <button class="button button__like"></button>
-          </div>
-        </li>
-        <li class="gallery__item">
-          <img src="./images/ecola-park.jpg" alt="Forest in Ecola State Park, Oregon" class="gallery__image">
-          <div class="gallery__base">
-            <h3 class="gallery__title">Ecola Park, Oregon</h3>
-            <button class="button button__like"></button>
-          </div>
-        </li>
       </ul>
     </main>
     <section class="popup popup_active">
@@ -79,6 +37,17 @@
     <footer class="footer">
       <p class="footer__copyright">© 2020 Cayla Mello</p>
     </footer>
+    <template class="gallery__template">
+      <li class="gallery__item">
+        <div class="gallery__image">
+          <button class="gallery__remove-button"></button>
+        </div>
+        <div class="gallery__base">
+          <h3 class="gallery__title"></h3>
+          <button class="gallery__like-button"></button>
+        </div>
+      </li>
+    </template>
     <script src="./pages/script.js"></script>
   </body>
 </html>
