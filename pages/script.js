@@ -61,6 +61,8 @@ initialCards.forEach((data) => {
 
   galleryTitle.textContent = data.name;
   galleryImage.style.background = `url(${data.link})`;
+  galleryImage.style.backgroundSize = "cover";
+  galleryImage.style.minHeight = "282px";
 
   galleryLikeButton.addEventListener("click", (evt) => {
     changeHeartColor();
