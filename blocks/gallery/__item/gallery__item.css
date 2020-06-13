@@ -3,6 +3,7 @@
   width: 282px;
   background-color: white;
   margin: 0 18px 21px 0;
+  position: relative;
 }
 
 .gallery__item:nth-child(3n) {

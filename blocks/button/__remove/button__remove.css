@@ -1,0 +1,10 @@
+.button__remove {
+  background-image: url("../../../images/trash-can.svg");
+  height: 19.3px;
+  width: 18px;
+  top: 19px;
+  right: 15px;
+  position: absolute;
+  border: none;
+  background-color: transparent;
+}

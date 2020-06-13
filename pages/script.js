@@ -59,19 +59,19 @@ initialCards.forEach((data) => {
 const galleryTemplate = document.querySelector(".gallery__template").content.querySelector(".gallery__item");
 const galleryElement = galleryTemplate.cloneNode(true);
 const galleryImage = galleryElement.querySelector(".gallery__image");
-const galleryRemoveButton = galleryElement.querySelector(".gallery__remove-button");
+const buttonRemove = galleryElement.querySelector(".button__remove");
 const galleryTitle = galleryElement.querySelector(".gallery__title");
-const galleryLikeButton = galleryElement.querySelector(".gallery__like-button");
+const buttonLike = galleryElement.querySelector(".button__like");
 
 galleryTitle.textContent = data.name;
 galleryImage.style.background = `url(${data.link})`;
 galleryImage.style.backgroundSize = "cover";
 galleryImage.style.minHeight = "282px";
 
-galleryLikeButton.addEventListener("click", (evt) => {
+buttonLike.addEventListener("click", (evt) => {
   changeHeartColor();
 })
-galleryRemoveButton.addEventListener("click", (evt) => {
+buttonRemove.addEventListener("click", (evt) => {
   Removegallery();
 })
 galleryImage.addEventListener("click", (evt) => {
@@ -87,6 +87,7 @@ const buttonAdd = document.querySelector(".button__add");
 const popupAdd = document.querySelector(".popup_type_add-button");
 const buttonCloseAdd = popupAdd.querySelector(".button__close");
 const formAdd = document.querySelector(".popup__form_type_add-button");
+const buttonCreate = document.querySelector(".button__submit_create");
 const inputTitle = document.querySelector(".popup__input_title");
 const inputImageLink = document.querySelector(".popup__input_image-link");
 
@@ -98,11 +99,11 @@ function popUnpopAdd () {
 buttonAdd.addEventListener("click", popUnpopAdd);
 buttonCloseAdd.addEventListener("click", popUnpopAdd);
 
-formAdd.addEventListener("submit", function(e) {
+buttonCreate.addEventListener("submit", function(e) {
   e.preventDefault();
   
   galleryTitle.textContent = inputTitle.value;
-  galleryImage.`url(${data.link})` = inputImageLink.value;
+  galleryImage.data.link = inputImageLink.value;
   
   popUnpopAdd ();
 })
