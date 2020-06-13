@@ -1,3 +1,5 @@
+//edit button popup//////////////////////////////////////////////////////
+
 const profileName = document.querySelector(".profile__name");
 const profileOccupation = document.querySelector(".profile__occupation");
 const buttonEdit = document.querySelector(".button__edit");
@@ -24,6 +26,7 @@ form.addEventListener("submit", function(e) {
   popUnpop ();
 })
 
+//card construction//////////////////////////////////////////////////////////
 
 const initialCards = [
   {
@@ -77,3 +80,29 @@ galleryImage.addEventListener("click", (evt) => {
 const galleryItems = document.querySelector(".gallery__items");
 galleryItems.prepend(galleryElement);
 });
+
+//Add button popup////////////////////////////////////////////////////
+
+const buttonAdd = document.querySelector(".button__add");
+const popupAdd = document.querySelector(".popup_type_add-button");
+const buttonCloseAdd = popupAdd.querySelector(".button__close");
+const formAdd = document.querySelector(".popup__form_type_add-button");
+const inputTitle = document.querySelector(".popup__input_title");
+const inputImageLink = document.querySelector(".popup__input_image-link");
+
+function popUnpopAdd () {
+  popupAdd.classList.toggle("popup_active");
+  inputTitle.placeholder = "Image Title";
+  inputImageLink.placeholder = "Image Link";
+}
+buttonAdd.addEventListener("click", popUnpopAdd);
+buttonCloseAdd.addEventListener("click", popUnpopAdd);
+
+formAdd.addEventListener("submit", function(e) {
+  e.preventDefault();
+  
+  galleryTitle.textContent = inputTitle.value;
+  galleryImage.`url(${data.link})` = inputImageLink.value;
+  
+  popUnpopAdd ();
+})
