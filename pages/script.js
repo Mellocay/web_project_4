@@ -61,20 +61,23 @@ const initialCards = [
 //add new card////////////////////////////////////
 const galleryTemplate = document.querySelector(".gallery__template").content.querySelector(".gallery__item");
 
-const createCard= (data) => {
+const createCard= (name, link) => {
   const galleryElement = galleryTemplate.cloneNode(true);
   const galleryImage = galleryElement.querySelector(".gallery__image");
   const buttonRemove = galleryElement.querySelector(".button__remove");
   const galleryTitle = galleryElement.querySelector(".gallery__title");
   const buttonLike = galleryElement.querySelector(".button__like");
 
-  galleryTitle.textContent = data.name;
-  galleryImage.style.background = `url(${data.link})`;
+  galleryTitle.textContent = name;
+  galleryImage.style.background = `url(${link})`;
   galleryImage.style.backgroundSize = "cover";
   galleryImage.style.minHeight = "282px";
 
   buttonLike.addEventListener("click", (evt) => {
-    //changeHeartColor();
+    function changeHeartColor() {
+      buttonLike.classList.toggle("button__like_activated");
+    }
+    changeHeartColor();
   });
   buttonRemove.addEventListener("click", (evt) => {
     evt.target.closest(".gallery__item").remove();
@@ -87,8 +90,8 @@ const createCard= (data) => {
 };
 const galleryItems = document.querySelector(".gallery__items");
 
-const renderCard = (title, image) => {
-  galleryItems.prepend(createCard(title, image));
+const renderCard = (name, link) => {
+  galleryItems.prepend(createCard(name, link));
 };
 
 initialCards.forEach((data) => {
