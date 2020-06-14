@@ -1,12 +1,14 @@
 .button__close {
+  top: -41px;
+  right: -41px;
+  position: absolute;
+  display: inline-block;
   width: 41px;
   height: 41px;
   background-color: #000;
   border: none;
   background-image: url(../../../images/close-x.svg);
   background-position: center;
-  grid-column: 2;
-  grid-row: 1;
 }
 
 @media screen and (min-width: 0) and (max-width: 550px) {
