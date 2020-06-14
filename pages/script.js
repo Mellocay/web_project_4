@@ -24,7 +24,7 @@ form.addEventListener("submit", function(e) {
   profileOccupation.textContent = inputOccupation.value;
   
   popUnpop ();
-})
+});
 
 //card construction//////////////////////////////////////////////////////////
 
@@ -55,32 +55,45 @@ const initialCards = [
   }
 ];
 
-initialCards.forEach((data) => {
+
+
+
+//add new card////////////////////////////////////
 const galleryTemplate = document.querySelector(".gallery__template").content.querySelector(".gallery__item");
-const galleryElement = galleryTemplate.cloneNode(true);
-const galleryImage = galleryElement.querySelector(".gallery__image");
-const buttonRemove = galleryElement.querySelector(".button__remove");
-const galleryTitle = galleryElement.querySelector(".gallery__title");
-const buttonLike = galleryElement.querySelector(".button__like");
 
-galleryTitle.textContent = data.name;
-galleryImage.style.background = `url(${data.link})`;
-galleryImage.style.backgroundSize = "cover";
-galleryImage.style.minHeight = "282px";
+const createCard= (data) => {
+  const galleryElement = galleryTemplate.cloneNode(true);
+  const galleryImage = galleryElement.querySelector(".gallery__image");
+  const buttonRemove = galleryElement.querySelector(".button__remove");
+  const galleryTitle = galleryElement.querySelector(".gallery__title");
+  const buttonLike = galleryElement.querySelector(".button__like");
 
-buttonLike.addEventListener("click", (evt) => {
-  changeHeartColor();
-})
-buttonRemove.addEventListener("click", (evt) => {
-  Removegallery();
-})
-galleryImage.addEventListener("click", (evt) => {
-  fullPicture();
-})
+  galleryTitle.textContent = data.name;
+  galleryImage.style.background = `url(${data.link})`;
+  galleryImage.style.backgroundSize = "cover";
+  galleryImage.style.minHeight = "282px";
+
+  buttonLike.addEventListener("click", (evt) => {
+    //changeHeartColor();
+  });
+  buttonRemove.addEventListener("click", (evt) => {
+    evt.target.closest(".gallery__item").remove();
+  });
+  galleryImage.addEventListener("click", (evt) => {
+    fullPicture();
+  });
+
+  return galleryElement;
+};
 const galleryItems = document.querySelector(".gallery__items");
-galleryItems.prepend(galleryElement);
-});
 
+const renderCard = (title, image) => {
+  galleryItems.prepend(createCard(title, image));
+};
+
+initialCards.forEach((data) => {
+  renderCard(data.name, data.link);
+});
 //Add button popup////////////////////////////////////////////////////
 
 const buttonAdd = document.querySelector(".button__add");
@@ -99,11 +112,8 @@ function popUnpopAdd () {
 buttonAdd.addEventListener("click", popUnpopAdd);
 buttonCloseAdd.addEventListener("click", popUnpopAdd);
 
-buttonCreate.addEventListener("submit", function(e) {
+formAdd.addEventListener("submit", (e) => {
   e.preventDefault();
-  
-  galleryTitle.textContent = inputTitle.value;
-  galleryImage.data.link = inputImageLink.value;
-  
+  renderCard(inputTitle.value, inputImageLink.value);
   popUnpopAdd ();
-})
+});
