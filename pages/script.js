@@ -55,8 +55,18 @@ const initialCards = [
   }
 ];
 
+//open full image/////////////////////////////////
+const popupFullImage = document.querySelector(".popup_type_image");
+const buttonCloseImage = popupFullImage.querySelector(".button__close");
+const popupImage = document.querySelector(".popup__image");
+const popupCaption = document.querySelector(".popup__caption");
 
-
+function fullImage(name, link) {
+  popupFullImage.classList.toggle("popup_active");
+  popupImage.src = link;
+  popupImage.alt = name;
+  popupCaption.textContent = name;
+}
 
 //add new card////////////////////////////////////
 const galleryTemplate = document.querySelector(".gallery__template").content.querySelector(".gallery__item");
@@ -83,7 +93,10 @@ const createCard= (name, link) => {
     evt.target.closest(".gallery__item").remove();
   });
   galleryImage.addEventListener("click", (evt) => {
-    fullPicture();
+    fullImage(name, link);
+    galleryImage.addEventListener("click", fullImage);
+    buttonCloseImage.addEventListener("click", fullImage);
+
   });
 
   return galleryElement;

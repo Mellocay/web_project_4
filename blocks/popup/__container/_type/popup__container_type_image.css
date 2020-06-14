@@ -1,0 +1,26 @@
+.popup__container_type_image {
+  background: transparent;
+  border-radius: 0;
+  max-width: 75vw;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
+}
+
+.popup__container_type_image {
+  grid-template-columns: auto 41px;
+  grid-template-rows: 41px auto;
+  position: fixed;
+  
+}
+
+@media screen and (min-width: 0) and (max-width: 550px) {
+  .popup__container_type_image {
+    width: 265px;
+    height: 283px;
+    left: calc((100% / 2) - (265px / 2));
+    top: calc((100% / 2) - (283px / 2));
+    grid-template-columns: 240px 25px;
+    grid-template-rows: 25px 258px;
+  }
+}
