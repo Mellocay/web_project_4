@@ -11,13 +11,13 @@ const inputOccupation = document.querySelector(".popup__input_occupation");
 
 function popUnpop () {
   popup.classList.toggle("popup_active");
-  inputName.value = "Jacques Cousteau";
-  inputOccupation.value = "Explorer";
+  inputName.placeholder = "Name";
+  inputOccupation.placeholder = "Occupation";
 }
 buttonEdit.addEventListener("click", popUnpop);
 buttonClose.addEventListener("click", popUnpop);
 
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
   
   profileName.textContent = inputName.value;
@@ -81,7 +81,6 @@ const createCard= (name, link) => {
   galleryTitle.textContent = name;
   galleryImage.style.background = `url(${link})`;
   galleryImage.style.backgroundSize = "cover";
-  galleryImage.style.minHeight = "282px";
 
   buttonLike.addEventListener("click", (evt) => {
     function changeHeartColor() {
@@ -92,7 +91,7 @@ const createCard= (name, link) => {
   buttonRemove.addEventListener("click", (evt) => {
     evt.target.closest(".gallery__item").remove();
   });
-  galleryImage.addEventListener("click", (evt) => {
+  galleryImage.addEventListener("click", () => {
     fullImage(name, link);
     galleryImage.addEventListener("click", fullImage);
     buttonCloseImage.addEventListener("click", fullImage);
@@ -116,7 +115,6 @@ const buttonAdd = document.querySelector(".button__add");
 const popupAdd = document.querySelector(".popup_type_add-button");
 const buttonCloseAdd = popupAdd.querySelector(".button__close");
 const formAdd = document.querySelector(".popup__form_type_add-button");
-const buttonCreate = document.querySelector(".button__submit_create");
 const inputTitle = document.querySelector(".popup__input_title");
 const inputImageLink = document.querySelector(".popup__input_image-link");
 
