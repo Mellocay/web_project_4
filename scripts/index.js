@@ -132,9 +132,23 @@ formAdd.addEventListener("submit", (e) => {
   popUnpopAdd ();
 });
 
-const popupBackground = popupFullImage.querySelector(".popup__background");
+const popupBackgroundImage = popupFullImage.querySelector(".popup__background");
 if (popupFullImage.classList.contains("popup_active")) {
-  popupBackground.addEventListener("click", function(evt) {
+  popupBackgroundImage.addEventListener("click", function(evt) {
     fullImage();
+  });
+};
+
+const popupBackground = document.querySelector(".popup__background");
+if (popup.classList.contains("popup_active")) {
+  popupBackground.addEventListener("click", function(evt) {
+    popUnpop();
+  });
+};
+
+const popupBackgroundAdd = popupAdd.querySelector(".popup__background");
+if (popupAdd.classList.contains("popup_active")) {
+  popupBackgroundAdd.addEventListener("click", function(evt) {
+    popUnpopAdd();
   });
 };
