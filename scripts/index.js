@@ -131,3 +131,11 @@ formAdd.addEventListener("submit", (e) => {
   renderCard(inputTitle.value, inputImageLink.value);
   popUnpopAdd ();
 });
+
+//close popups
+const formBackground = document.querySelector(".popup__background");
+const formBackgroundAdd = document.querySelector(".popup__background_add");
+const formBackgroundImage = document.querySelector(".popup__background_image");
+formBackground.addEventListener("click", popUnpop);
+formBackgroundAdd.addEventListener("click", popUnpopAdd);
+formBackgroundImage.addEventListener("click", fullImage);

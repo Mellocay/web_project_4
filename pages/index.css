@@ -28,3 +28,11 @@
   background-color: rgba(0, 0, 0, .2);
   pointer-events: none;
 }
+
+.popup__background {
+  background-color: rgba(0, 0, 0, .5);
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  position: relative;
+}
