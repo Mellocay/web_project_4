@@ -10,5 +10,6 @@
   .popup__title {
       width: 169px;
       margin-bottom: 20px;
+      margin-top: 0;
     }
   }

@@ -16,5 +16,6 @@
   .popup__form {
     width: 240px;
     height: 258px;
+    padding: 20 22px;
   }
 }

@@ -1,3 +1,8 @@
+const submitButtonSelector = document.querySelectorAll(".popup__button");
+const input = document.querySelectorAll("popup__input");
+const formSelector = document.querySelectorAll(".popup__form");
+
+
 function showErrorMessage(input, form, {errorClass, inputErrorClass, ...rest}) {
   const error = document.querySelector("#" + input.id + "-error");
   error.textContent = input.validationMessage;
@@ -26,9 +31,9 @@ function toggleButtonState(inputs, button, {inactiveButtonClass, ...rest}) {
   const isValid = inputs.every((input) => input.validity.valid)
 
   if(isValid) {
-    button.classList.remove("inactiveButtonClass");
+    button.classList.remove("popup__button_disabled");
   } else {
-    button.classList.add("inactiveButtonClass");
+    button.classList.add("popup__button_disabled");
   }
 }
 
@@ -36,9 +41,9 @@ function enableValidation({formSelector, inputSelector, submitButtonSelector, ..
   const forms = [...document.querySelectorAll(formSelector)];
 
   forms.forEach((form) => {
-    form.addEventListener("submit", ((evt) => {
+    form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-    }))
+    });
 
     const inputs = [...form.querySelectorAll(inputSelector)];
     const button = form.querySelector(submitButtonSelector);
