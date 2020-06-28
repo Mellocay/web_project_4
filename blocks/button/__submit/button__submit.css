@@ -5,13 +5,11 @@
   color: #fff;
   border: solid;
   border-radius: 2px;
-  margin: 48px 36px 36px;
 }
 
 @media screen and (min-width: 0) and (max-width: 550px) {
   .button__submit {
       width: 169px;
       height: 30px;
-      margin: 34px 36px 24px;
     }
   }
