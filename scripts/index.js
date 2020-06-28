@@ -9,6 +9,14 @@ const form = document.querySelector(".popup__form");
 const inputName = document.querySelector(".popup__input_name");
 const inputOccupation = document.querySelector(".popup__input_occupation");
 
+function escapeClose() {
+  document.addEventListener("keydown", function(evt) {
+    if (evt.keyCode === 27) {
+      popup.remove.classList("popup__active");
+    }
+  })
+}
+
 function popUnpop () {
   popup.classList.toggle("popup_active");
   inputName.placeholder = "Name";
@@ -20,6 +28,7 @@ function popUnpop () {
       popUnpop();
     }
   })
+  escapeClose();
 }
 
 buttonEdit.addEventListener("click", popUnpop);
@@ -154,4 +163,3 @@ formAdd.addEventListener("submit", (e) => {
   renderCard(inputTitle.value, inputImageLink.value);
   popUnpopAdd ();
 });
-
