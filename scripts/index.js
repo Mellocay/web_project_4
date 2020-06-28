@@ -13,7 +13,15 @@ function popUnpop () {
   popup.classList.toggle("popup_active");
   inputName.placeholder = "Name";
   inputOccupation.placeholder = "Occupation";
+
+  const popupBackground = document.querySelector(".popup__background");
+  popupBackground.addEventListener("click", function() {
+    if (popup.classList.contains("popup_active")) {
+      popUnpop();
+    }
+  })
 }
+
 buttonEdit.addEventListener("click", popUnpop);
 buttonClose.addEventListener("click", popUnpop);
 
@@ -66,6 +74,13 @@ function fullImage(name, link) {
   popupImage.src = link;
   popupImage.alt = name;
   popupCaption.textContent = name;
+
+  const popupBackgroundImage = popupFullImage.querySelector(".popup__background");
+  popupBackgroundImage.addEventListener("click", function() {
+    if (popupFullImage.classList.contains("popup_active")) {
+      fullImage();
+    }
+  })
 }
 
 //add new card////////////////////////////////////
@@ -122,6 +137,14 @@ function popUnpopAdd () {
   popupAdd.classList.toggle("popup_active");
   inputTitle.placeholder = "Image Title";
   inputImageLink.placeholder = "Image Link";
+
+  const popupBackgroundAdd = popupAdd.querySelector(".popup__background");
+
+  popupBackgroundAdd.addEventListener("click", function() {
+    if (popupAdd.classList.contains("popup_active")) {
+      popUnpopAdd();
+    }
+  })
 }
 buttonAdd.addEventListener("click", popUnpopAdd);
 buttonCloseAdd.addEventListener("click", popUnpopAdd);
@@ -132,23 +155,3 @@ formAdd.addEventListener("submit", (e) => {
   popUnpopAdd ();
 });
 
-const popupBackgroundImage = popupFullImage.querySelector(".popup__background");
-if (popupFullImage.classList.contains("popup_active")) {
-  popupBackgroundImage.addEventListener("click", function(evt) {
-    fullImage();
-  });
-};
-
-const popupBackground = document.querySelector(".popup__background");
-if (popup.classList.contains("popup_active")) {
-  popupBackground.addEventListener("click", function(evt) {
-    popUnpop();
-  });
-};
-
-const popupBackgroundAdd = popupAdd.querySelector(".popup__background");
-if (popupAdd.classList.contains("popup_active")) {
-  popupBackgroundAdd.addEventListener("click", function(evt) {
-    popUnpopAdd();
-  });
-};
