@@ -1,8 +1,8 @@
-# Project 5: Around The U.S.
+# Project 6: Around The U.S.
 
 ### Overview
 
-This website contains picture cards that you can both remove and add, as well as an editable profile.
+This website contains picture cards that you can both remove and add, as well as an editable profile.  The forms are validated and enhanced for a pleasant user experience.
 
 * [Here's a link to my project](https://mellocay.github.io/web_project_4/)
 
@@ -15,6 +15,8 @@ I formatted this project according to the [Figma brief.](https://www.figma.com/f
 For Project 4 I had to learn how to use const, querySelector, functions, textContent, toggle classes, and how to change values.
 
 For Project 5 I expanded my knowledge of add event listeners, functions, and how to link html, css, and jS.
+
+Project 6 was all about form validation and user experience.  I also worked with more complex even listeners.  
 
 **Conclusion**
 

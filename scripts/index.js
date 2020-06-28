@@ -132,10 +132,9 @@ formAdd.addEventListener("submit", (e) => {
   popUnpopAdd ();
 });
 
-//close popups
-const formBackground = document.querySelector(".popup__background");
-const formBackgroundAdd = document.querySelector(".popup__background_add");
-const formBackgroundImage = document.querySelector(".popup__background_image");
-formBackground.addEventListener("click", popUnpop);
-formBackgroundAdd.addEventListener("click", popUnpopAdd);
-formBackgroundImage.addEventListener("click", fullImage);
+const popupBackground = popupFullImage.querySelector(".popup__background");
+if (popupFullImage.classList.contains("popup_active")) {
+  popupBackground.addEventListener("click", function(evt) {
+    fullImage();
+  });
+};

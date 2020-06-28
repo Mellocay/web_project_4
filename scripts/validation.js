@@ -2,7 +2,6 @@ const submitButtonSelector = document.querySelectorAll(".popup__button");
 const input = document.querySelectorAll("popup__input");
 const formSelector = document.querySelectorAll(".popup__form");
 
-
 function showErrorMessage(input, form, {errorClass, inputErrorClass, ...rest}) {
   const error = document.querySelector("#" + input.id + "-error");
   error.textContent = input.validationMessage;
@@ -22,8 +21,10 @@ function hideErrorMessage(input, form, {errorClass, inputErrorClass, ...rest}) {
 function checkInputValidity(input, form, rest) {
   if(input.validity.valid) {
     hideErrorMessage(input, form, rest);
+    input.classList.remove("popup__input_type_error");
   } else{
     showErrorMessage(input, form, rest);
+    input.classList.add("popup__input_type_error");
   }
 }
 
