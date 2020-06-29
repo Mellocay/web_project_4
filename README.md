@@ -2,7 +2,7 @@
 
 ### Overview
 
-This website contains picture cards that you can both remove and add, as well as an editable profile.  The forms are validated and enhanced for a pleasant user experience.
+This website contains picture cards that you can both remove and add, as well as an editable profile.  The forms are validated and enhanced for a pleasant user experience.  You can now exit a modal by pressing the escape key, clicking the close button, submit button, or outside the modal.  
 
 * [Here's a link to my project](https://mellocay.github.io/web_project_4/)
 

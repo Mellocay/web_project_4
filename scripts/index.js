@@ -2,7 +2,7 @@ const profileName = document.querySelector(".profile__name");
 const profileOccupation = document.querySelector(".profile__occupation");
 const buttonEdit = document.querySelector(".button__edit");
 const popupEdit = document.querySelector(".popup_type_edit-button");
-const buttonClose = Array.from(document.querySelectorAll(".button__close"));
+const buttonClose = document.querySelector(".button__close");
 const form = document.querySelector(".popup__form");
 const inputName = document.querySelector(".popup__input_name");
 const inputOccupation = document.querySelector(".popup__input_occupation");
@@ -60,13 +60,14 @@ function editProfile () {
     profileName.textContent = inputName.value;
     profileOccupation.textContent = inputOccupation.value;
     togglePopup(popupEdit);
-    window.addEventListener('keyup', escapeClose);
-    popupBackground.addEventListener("click", backgroundClickClose);
-    buttonClose.addEventListener("click", togglePopup(popupEdit));
   });
+  popupBackground.addEventListener("click", backgroundClickClose);
 }
-buttonEdit.addEventListener("click", editProfile);
 
+buttonEdit.addEventListener("click", editProfile);
+buttonClose.addEventListener('click', () => {
+  togglePopup(popupEdit);
+});
 
 //card construction
 const initialCards = [
@@ -122,11 +123,15 @@ const createCard= (name, link) => {
   galleryImage.addEventListener("click", () => {
     fullImage(name, link);
     galleryImage.addEventListener("click", fullImage);
-    buttonCloseImage.addEventListener("click", fullImage);
+   
 
   });
   return galleryElement;
 };
+
+buttonCloseImage.addEventListener('click', () => {
+  togglePopup(popupFullImage);
+});
 const galleryItems = document.querySelector(".gallery__items");
 
 const renderCard = (name, link) => {
@@ -152,8 +157,10 @@ function addCard () {
   popupBackground.addEventListener("click", backgroundClickClose);
   window.addEventListener('keyup', escapeClose);
 }
-buttonAdd.addEventListener("click", togglePopup);
-buttonCloseAdd.addEventListener("click", togglePopup);
+buttonAdd.addEventListener("click", addCard);
+buttonCloseAdd.addEventListener('click', () => {
+  togglePopup(popupAdd);
+});
 
 formAdd.addEventListener("submit", (e) => {
   e.preventDefault();
