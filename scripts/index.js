@@ -11,7 +11,7 @@ const inputOccupation = document.querySelector(".popup__input_occupation");
 
 function escape(e) {
   if (e.key === 'Escape') {
-    popUnpop(document.querySelector('.popup__active'));
+    popUnpop();
   }
   e.target.removeEventListener('keyup', escape);
 }
@@ -83,7 +83,7 @@ const popupCaption = document.querySelector(".popup__caption");
 
 function escapeImage(e) {
   if (e.key === 'Escape') {
-    fullImage(document.querySelector('.popup__active'));
+    fullImage();
   }
   e.target.removeEventListener('keyup', escapeImage);
 }
@@ -155,7 +155,7 @@ const inputImageLink = document.querySelector(".popup__input_image-link");
 
 function escapeAdd(e) {
   if (e.key === 'Escape') {
-    popUnpopAdd(document.querySelector('.popup__active'));
+    popUnpopAdd();
   }
   e.target.removeEventListener('keyup', escapeAdd);
 }
@@ -172,7 +172,7 @@ function popUnpopAdd () {
       popUnpopAdd();
     }
   })
-  window.addEventListener('keyup', escapeImage);
+  window.addEventListener('keyup', escapeAdd);
 }
 buttonAdd.addEventListener("click", popUnpopAdd);
 buttonCloseAdd.addEventListener("click", popUnpopAdd);
