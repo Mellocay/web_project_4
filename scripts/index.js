@@ -9,13 +9,15 @@ const form = document.querySelector(".popup__form");
 const inputName = document.querySelector(".popup__input_name");
 const inputOccupation = document.querySelector(".popup__input_occupation");
 
-function escapeClose() {
-  document.addEventListener("keydown", function(evt) {
-    if (evt.keyCode === 27) {
-      popup.remove.classList("popup__active");
-    }
-  })
+function escape(e) {
+  if (e.key === 'Escape') {
+    popUnpop(document.querySelector('.popup__active'));
+  }
+  e.target.removeEventListener('keyup', escape);
 }
+
+
+
 
 function popUnpop () {
   popup.classList.toggle("popup_active");
@@ -28,7 +30,8 @@ function popUnpop () {
       popUnpop();
     }
   })
-  escapeClose();
+  window.addEventListener('keyup', escape);
+
 }
 
 buttonEdit.addEventListener("click", popUnpop);
@@ -78,6 +81,13 @@ const buttonCloseImage = popupFullImage.querySelector(".button__close");
 const popupImage = document.querySelector(".popup__image");
 const popupCaption = document.querySelector(".popup__caption");
 
+function escapeImage(e) {
+  if (e.key === 'Escape') {
+    fullImage(document.querySelector('.popup__active'));
+  }
+  e.target.removeEventListener('keyup', escapeImage);
+}
+
 function fullImage(name, link) {
   popupFullImage.classList.toggle("popup_active");
   popupImage.src = link;
@@ -90,6 +100,7 @@ function fullImage(name, link) {
       fullImage();
     }
   })
+  window.addEventListener('keyup', escapeImage);
 }
 
 //add new card////////////////////////////////////
@@ -142,6 +153,13 @@ const formAdd = document.querySelector(".popup__form_type_add-button");
 const inputTitle = document.querySelector(".popup__input_title");
 const inputImageLink = document.querySelector(".popup__input_image-link");
 
+function escapeAdd(e) {
+  if (e.key === 'Escape') {
+    popUnpopAdd(document.querySelector('.popup__active'));
+  }
+  e.target.removeEventListener('keyup', escapeAdd);
+}
+
 function popUnpopAdd () {
   popupAdd.classList.toggle("popup_active");
   inputTitle.placeholder = "Image Title";
@@ -154,6 +172,7 @@ function popUnpopAdd () {
       popUnpopAdd();
     }
   })
+  window.addEventListener('keyup', escapeImage);
 }
 buttonAdd.addEventListener("click", popUnpopAdd);
 buttonCloseAdd.addEventListener("click", popUnpopAdd);
