@@ -7,7 +7,6 @@ const form = document.querySelector(".popup__form");
 const inputName = document.querySelector(".popup__input_name");
 const inputOccupation = document.querySelector(".popup__input_occupation");
 const popupAdd = document.querySelector(".popup_type_add-button");
-const popupBackground = Array.from(document.querySelectorAll(".popup__background"));
 const popups = Array.from(document.querySelectorAll(".popup"));
 
 //open and close popup
@@ -26,13 +25,6 @@ function escapeClose(evt) {
   }
 }
 
-//close by background click
-function backgroundClickClose () {
-  if (popup.classList.contains("popup_active")) {
-    togglePopup(popup);
-  }
-}
-
 //image popup
 const popupFullImage = document.querySelector(".popup_type_image");
 const buttonCloseImage = popupFullImage.querySelector(".button__close");
@@ -44,9 +36,12 @@ function fullImage(name, link) {
   popupImage.alt = name;
   popupCaption.textContent = name;
   togglePopup(popupFullImage);
-  popupBackground.addEventListener("click", function() {
-    backgroundClickClose();
-  });
+  const popupBackgroundImage = popupFullImage.querySelector(".popup__background");
+  popupBackgroundImage.addEventListener("click", function() {
+    if (popupFullImage.classList.contains("popup_active")) {
+      togglePopup(popupFullImage);
+    }
+  })
   window.addEventListener('keyup', escapeClose);
 };
 
@@ -61,7 +56,12 @@ function editProfile () {
     profileOccupation.textContent = inputOccupation.value;
     togglePopup(popupEdit);
   });
-  popupBackground.addEventListener("click", backgroundClickClose);
+  const popupBackground = document.querySelector(".popup__background");
+  popupBackground.addEventListener("click", function() {
+    if (popupEdit.classList.contains("popup_active")) {
+      togglePopup(popupEdit);
+    }
+  })
 }
 
 buttonEdit.addEventListener("click", editProfile);
@@ -129,9 +129,9 @@ const createCard= (name, link) => {
   return galleryElement;
 };
 
-buttonCloseImage.addEventListener('click', () => {
-  togglePopup(popupFullImage);
-});
+ buttonCloseImage.addEventListener('click', () => {
+      togglePopup(popupFullImage);
+    });
 const galleryItems = document.querySelector(".gallery__items");
 
 const renderCard = (name, link) => {
@@ -154,7 +154,12 @@ function addCard () {
   inputTitle.placeholder = "Image Title";
   inputImageLink.placeholder = "Image Link";
 
-  popupBackground.addEventListener("click", backgroundClickClose);
+  const popupBackgroundAdd = popupAdd.querySelector(".popup__background");
+  popupBackgroundAdd.addEventListener("click", function() {
+    if (popupAdd.classList.contains("popup_active")) {
+      togglePopup(popupAdd);
+    }
+  })
   window.addEventListener('keyup', escapeClose);
 }
 buttonAdd.addEventListener("click", addCard);
