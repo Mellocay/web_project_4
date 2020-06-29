@@ -10,27 +10,26 @@ const popupAdd = document.querySelector(".popup_type_add-button");
 const popupBackground = Array.from(document.querySelectorAll(".popup__background"));
 const popups = Array.from(document.querySelectorAll(".popup"));
 
-//open and close popup
-function togglePopup(popup){
-  popup.classList.toggle("popup_active");
-  if (popup.classList.contains("popup_active")) {
-    window.addEventListener('keydown', escapeClose);
-  } else {
-    window.removeEventListener('keydown', escapeClose);
-  }
-}
+
 //close by escape
-function escapeClose(evt) {
-  if (evt.key === "Escape") {
-    togglePopup(document.querySelector(".popup_active"));
+function escapeClose(e) {
+  if (e.key === "Escape") {
+    togglePopup();
   }
+  e.target.removeEventListener('keyup', escapeClose);
 }
+window.addEventListener('keyup', escapeClose);
 
 //close by background click
 function backgroundClickClose () {
   if (popup.classList.contains("popup_active")) {
-    togglePopup(popup);
+    togglePopup();
   }
+}
+
+//open and close popup
+function togglePopup (popup) {
+  popup.classList.toggle("popup__active");
 }
 
 //image popup
@@ -40,15 +39,16 @@ const popupImage = document.querySelector(".popup__image");
 const popupCaption = document.querySelector(".popup__caption");
 
 function fullImage(name, link) {
+  togglePopup(popupFullImage);
   popupImage.src = link;
   popupImage.alt = name;
   popupCaption.textContent = name;
-  togglePopup(popupFullImage);
-  popupBackground.addEventListener("click", function() {
-    backgroundClickClose();
-  });
-  window.addEventListener('keyup', escapeClose);
-};
+
+  // popupBackground.addEventListener("click", function() {
+  //   backgroundClickClose();
+  // });
+  window.addEventListener('keyup', escape);
+}
 
 //Edit profile
 function editProfile () {
@@ -62,7 +62,7 @@ function editProfile () {
     togglePopup(popupEdit);
     window.addEventListener('keyup', escapeClose);
     popupBackground.addEventListener("click", backgroundClickClose);
-    buttonClose.addEventListener("click", togglePopup(popupEdit));
+    buttonClose.addEventListener("click", togglePopup);
   });
 }
 buttonEdit.addEventListener("click", editProfile);
@@ -158,5 +158,5 @@ buttonCloseAdd.addEventListener("click", togglePopup);
 formAdd.addEventListener("submit", (e) => {
   e.preventDefault();
   renderCard(inputTitle.value, inputImageLink.value);
-  togglePopup(popupAdd);
+  togglePopup (popupAdd);
 });

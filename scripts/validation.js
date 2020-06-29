@@ -1,40 +1,38 @@
-const submitButtonSelector = document.querySelectorAll(".popup__button");
-const input = document.querySelectorAll("popup__input");
-const formSelector = document.querySelectorAll(".popup__form");
-
-function showErrorMessage(input, form, {errorClass, inputErrorClass, ...rest}) {
-  const error = document.querySelector("#" + input.id + "-error");
+function showErrorMessage(input, form, errorClass, inputErrorClass) {
+  const error = document.querySelector(`#${input.id}-error`);
   error.textContent = input.validationMessage;
 
   error.classList.add("errorClass");
   input.classList.add("inputErrorClass");
+  input.classList.add("popup__input_type_error");
 }
 
-function hideErrorMessage(input, form, {errorClass, inputErrorClass, ...rest}) {
-  const error = document.querySelector("#" + input.id + "-error");
+function hideErrorMessage(input, form, errorClass, inputErrorClass) {
+  const error = document.querySelector(`#${input.id}-error`);
   error.textContent = "";
 
   error.classList.remove("errorClass");
   input.classList.remove("inputErrorClass");
+  input.classList.remove("popup__input_type_error");
 }
 
 function checkInputValidity(input, form, rest) {
   if(input.validity.valid) {
     hideErrorMessage(input, form, rest);
-    input.classList.remove("popup__input_type_error");
   } else{
     showErrorMessage(input, form, rest);
-    input.classList.add("popup__input_type_error");
   }
 }
 
-function toggleButtonState(inputs, button, {inactiveButtonClass, ...rest}) {
+function toggleButtonState(inputs, button, inactiveButtonClass) {
   const isValid = inputs.every((input) => input.validity.valid)
 
   if(isValid) {
     button.classList.remove("popup__button_disabled");
+    button.removeAttribute("disabled");
   } else {
     button.classList.add("popup__button_disabled");
+    button.setAttribute("disabled", "");
   }
 }
 
