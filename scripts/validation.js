@@ -34,7 +34,7 @@ function toggleButtonState(inputs, button, {inactiveButtonClass}) {
   }
 }
 
-function enableValidation({formSelector, inputSelector, submitButtonSelector, inactiveButtonClass, ...rest}) {
+function enableValidation({formSelector, inputSelector, submitButton, inactiveButtonClass, ...rest}) {
   const forms = [...document.querySelectorAll(formSelector)];
 
   forms.forEach((form) => {
@@ -43,7 +43,7 @@ function enableValidation({formSelector, inputSelector, submitButtonSelector, in
     });
 
     const inputs = [...form.querySelectorAll(inputSelector)];
-    const button = form.querySelector(submitButtonSelector);
+    const button = form.querySelector(submitButton);
 
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
@@ -57,7 +57,7 @@ function enableValidation({formSelector, inputSelector, submitButtonSelector, in
 enableValidation({
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
-  submitButtonSelector: ".button__submit",
+  submitButton: ".button__submit",
   inactiveButtonClass: "button__submit_disabled",
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible"
