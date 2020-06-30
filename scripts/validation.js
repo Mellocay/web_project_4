@@ -4,7 +4,6 @@ function showErrorMessage(input, errorClass, inputErrorClass) {
 
   error.classList.add(errorClass);
   input.classList.add(inputErrorClass);
-  input.classList.add("popup__input_type_error");
 }
 
 function hideErrorMessage(input, errorClass, inputErrorClass) {
