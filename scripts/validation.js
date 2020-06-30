@@ -23,15 +23,15 @@ function checkInputValidity(input, form, rest) {
   }
 }
 
-function toggleButtonState(inputs, button, inactiveButtonClass) {
+function toggleButtonState(inputs, inactiveButtonClass) {
   const isValid = inputs.every((input) => input.validity.valid)
 
   if(isValid) {
-    button.classList.remove("button__submit_disabled");
-    button.removeAttribute("disabled");
+    button__submit.classList.remove("button__submit_disabled");
+    button__submit.removeAttribute("disabled", "");
   } else {
-    button.classList.add("button__submit_disabled");
-    button.setAttribute("disabled", "");
+    button__submit.classList.add("button__submit_disabled");
+    button__submit.setAttribute("disabled", "");
   }
 }
 
