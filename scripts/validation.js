@@ -13,7 +13,6 @@ function hideErrorMessage(input, errorClass, inputErrorClass) {
 
   error.classList.remove(errorClass);
   input.classList.remove(inputErrorClass);
-  input.classList.remove("popup__input_type_error");
 }
 
 function checkInputValidity(input, form, rest) {
