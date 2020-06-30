@@ -42,14 +42,11 @@ function fullImage(name, link) {
       togglePopup(popupFullImage);
     }
   })
-  window.addEventListener('keyup', escapeClose);
 };
 
 //Edit profile
 function editProfile () {
   togglePopup(popupEdit);
-  inputName.placeholder = "Name";
-  inputOccupation.placeholder = "Occupation";
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     profileName.textContent = inputName.value;
@@ -122,9 +119,6 @@ const createCard= (name, link) => {
   });
   galleryImage.addEventListener("click", () => {
     fullImage(name, link);
-    galleryImage.addEventListener("click", fullImage);
-   
-
   });
   return galleryElement;
 };
@@ -151,8 +145,6 @@ const inputImageLink = document.querySelector(".popup__input_image-link");
 function addCard () {
   togglePopup(popupAdd);
   createCard();
-  inputTitle.placeholder = "Image Title";
-  inputImageLink.placeholder = "Image Link";
 
   const popupBackgroundAdd = popupAdd.querySelector(".popup__background");
   popupBackgroundAdd.addEventListener("click", function() {

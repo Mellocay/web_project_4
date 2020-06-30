@@ -18,7 +18,7 @@
   height: 100%;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 3s, opacity .5s;
+  transition: visibility .5s, opacity .5s;
 }
 
 .popup_active {
