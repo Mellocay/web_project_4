@@ -12,6 +12,10 @@
   margin-bottom: 20px;
 }
 
+.popup__input_type_error {
+  border-bottom: 1px solid #FF0000;
+}
+
 @media screen and (min-width: 0) and (max-width: 550px) {
   .popup__input {
       width: 169px;

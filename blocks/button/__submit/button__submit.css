@@ -7,6 +7,11 @@
   border-radius: 2px;
 }
 
+.button__submit_disabled {
+  background-color: rgba(0, 0, 0, .2);
+  pointer-events: none;
+}
+
 @media screen and (min-width: 0) and (max-width: 550px) {
   .button__submit {
       width: 169px;

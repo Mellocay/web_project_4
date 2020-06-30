@@ -7,32 +7,3 @@
 @import url('../blocks/gallery/gallery.css');
 @import url('../blocks/popup/popup.css');
 @import url('../blocks/footer/footer.css');
-
-.popup__error {
-  font-size: 12px;
-  line-height: 15px;
-  color: #FF0000;
-  display: hidden;
-}
-
-  
-.popup__error_visible {
-  display: visible;
-}
-
-.popup__input_type_error {
-  border-bottom: 1px solid #FF0000;
-}
-
-.popup__button_disabled {
-  background-color: rgba(0, 0, 0, .2);
-  pointer-events: none;
-}
-
-.popup__background {
-  background-color: rgba(0, 0, 0, .5);
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  position: relative;
-}

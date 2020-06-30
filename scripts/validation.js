@@ -58,8 +58,8 @@ function enableValidation({formSelector, inputSelector, submitButtonSelector, ..
 enableValidation({
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
+  submitButtonSelector: ".button__submit",
+  inactiveButtonClass: "button__submit_disabled",
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible"
 });
