@@ -27,10 +27,10 @@ function toggleButtonState(inputs, button, inactiveButtonClass) {
   const isValid = inputs.every((input) => input.validity.valid)
 
   if(isValid) {
-    button.classList.remove("popup__button_disabled");
+    button.classList.remove("button__submit_disabled");
     button.removeAttribute("disabled");
   } else {
-    button.classList.add("popup__button_disabled");
+    button.classList.add("button__submit_disabled");
     button.setAttribute("disabled", "");
   }
 }
