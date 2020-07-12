@@ -1,0 +1,10 @@
+@import url('./__items/card__items.css');
+@import url('./__item/card__item.css');
+@import url('./__image/card__image.css');
+@import url('./__base/card__base.css');
+@import url('./__title/card__title.css');
+
+.card {
+  max-width: 882px;
+  margin: 0 auto;
+}

@@ -1,4 +1,4 @@
-.gallery__image {
+.card__image {
   width: 282px;
   height: 282px;
   min-height: 282px;
@@ -9,6 +9,6 @@
   border-top-left-radius: 10px;
 }
 
-.gallery__image:hover {
+.card__image:hover {
   cursor: pointer;
 }
