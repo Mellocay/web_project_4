@@ -50,7 +50,7 @@ addCardValidator.enableValidation();
 //add new card
 const cardItems = document.querySelector(".card__items");
 const createCard= (data) => {
-  const cardTemplate = new Card(data, ".card-template");
+  const cardTemplate = new Card(data, ".card__template");
   const cardElement = cardTemplate.generateCard();
   cardItems.prepend(cardElement);
 }
@@ -88,12 +88,7 @@ buttonClose.addEventListener('click', () => {
   togglePopup(popupEdit);
 });
 
-//close by escape
-function escapeClose(evt) {
-  if (evt.key === "Escape") {
-    togglePopup(document.querySelector(".popup_active"));
-  }
-}
+
 
 
 

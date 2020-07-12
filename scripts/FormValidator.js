@@ -6,7 +6,7 @@ class FormValidator {
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
 
-    this.formElement = formElement;
+    this._formElement = formElement;
   }
 
   _showErrorMessage(inputElement, errorMessage) {
@@ -56,7 +56,7 @@ class FormValidator {
   }
 
   enableValidation() {
-    this.formElement.addEventListener("submit", ((evt) => {
+    this._formElement.addEventListener("submit", ((evt) => {
       evt.preventDefault();
     }));
     this._setEventListeners();

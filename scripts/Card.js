@@ -29,10 +29,10 @@ export default class Card {
   }
 
   _handleHeartColor() {
-    changeHeartColor();
+    buttonLike.classList.toggle("button__like_activated");
   }
 
-  _handleRemoveCard() {
+  _handleRemoveCard(evt) {
     evt.target.closest(".card__item").remove();
   }
 

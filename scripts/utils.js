@@ -7,6 +7,13 @@ function togglePopup(popup){
   }
 }
 
+//close by escape
+function escapeClose(evt) {
+  if (evt.key === "Escape") {
+    togglePopup(document.querySelector(".popup_active"));
+  }
+}
+
 const popupFullImage = document.querySelector(".popup_type_image");
 const buttonCloseImage = popupFullImage.querySelector(".button__close");
 const popupImage = document.querySelector(".popup__image");
@@ -28,5 +35,10 @@ buttonCloseImage.addEventListener('click', () => {
   togglePopup(popupFullImage);
 });
 
+function changeHeartColor() {
+  buttonLike.classList.toggle("button__like_activated");
+}
+
+export {changeHeartColor};
 export {togglePopup};
 export {fullImage};
