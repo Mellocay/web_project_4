@@ -25,7 +25,7 @@ function fullImage(link, name) {
   popupCaption.textContent = name;
   togglePopup(popupFullImage);
   const popupBackgroundImage = popupFullImage.querySelector(".popup__background");
-  popupBackgroundImage.addEventListener("click", function() {
+  popupBackgroundImage.addEventListener("click", () => {
     if (popupFullImage.classList.contains("popup_active")) {
       togglePopup(popupFullImage);
     }

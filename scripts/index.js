@@ -65,7 +65,6 @@ const buttonEdit = document.querySelector(".button__edit");
 const buttonClose = document.querySelector(".button__close");
 const inputName = document.querySelector(".popup__input_name");
 const inputOccupation = document.querySelector(".popup__input_occupation");
-const popups = Array.from(document.querySelectorAll(".popup"));
 
 function editProfile () {
   togglePopup(popupEdit);
