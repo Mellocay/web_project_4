@@ -18,13 +18,13 @@ export default class Card {
     const buttonLike = this._cardElement.querySelector(".button__like");
     const buttonRemove = this._cardElement.querySelector(".button__remove");
 
-    cardImage.addEventListener("click", (data) => this._handleFullImage(data));
+    cardImage.addEventListener("click", (data) => this._handleFullImage(this._link, this._name));
     buttonLike.addEventListener("click", this._handleHeartColor);
     buttonRemove.addEventListener("click", this._handleRemoveCard);
   };
 
-  _handleFullImage(this._link, this._name) {
-    fullImage(this._link, this._name);
+  _handleFullImage(data) {
+    fullImage(data);
   };
 
   _handleHeartColor(evt) {
