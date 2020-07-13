@@ -23,8 +23,8 @@ export default class Card {
     buttonRemove.addEventListener("click", this._handleRemoveCard);
   };
 
-  _handleFullImage(link, name) {
-    fullImage(link, name);
+  _handleFullImage(this._link, this._name) {
+    fullImage(this._link, this._name);
   };
 
   _handleHeartColor(evt) {

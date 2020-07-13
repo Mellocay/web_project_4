@@ -31,15 +31,15 @@ class FormValidator {
     }
   }
 
-  _toggleButtonState(inputElements) {
+  _toggleButtonState(inputElements, buttonElement) {
     const isValid = inputElements.every((inputElement) => inputElement.validity.valid);
 
     if (isValid) {
-      this._submitButton.classList.remove(this._inactiveButtonClass);
-      this._submitButton.removeAttribute("disabled", "");
+      buttonElement.classList.remove(this._inactiveButtonClass);
+      buttonElement.removeAttribute("disabled", "");
     } else {
-      this._submitButton.classList.add(this._inactiveButtonClass);
-      this._submitButton.setAttribute("disabled", "");
+      buttonElement.classList.add(this._inactiveButtonClass);
+      buttonElement.setAttribute("disabled", "");
     }
   }
 
