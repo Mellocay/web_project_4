@@ -112,6 +112,10 @@ buttonCloseAdd.addEventListener('click', () => {
 
 formAdd.addEventListener("submit", (e) => {
   e.preventDefault();
-  createCard(inputTitle.value, inputImageLink.value);
+  createCard({name:inputTitle.value, link: inputImageLink.value});
   togglePopup(popupAdd);
 });
+
+
+// inputTitle.value, inputImageLink.value
+// this._link.value, this.name.value
