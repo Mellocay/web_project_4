@@ -9,10 +9,10 @@ class FormValidator {
     this._formElement = formElement;
   }
 
-  _showErrorMessage(inputElement, errorMessage) {
+  _showErrorMessage(inputElement) {
     const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(this._inputErrorClass);
-    errorElement.textContent = errorMessage;
+    errorElement.textContent = inputElement.validationMessage;
     errorElement.classList.add(this._errorClass);    
   }
 
@@ -25,9 +25,9 @@ class FormValidator {
 
   _checkInputValidity(inputElement) {
     if (inputElement.validity.valid) {
-      hideErrorMessage(inputElement);
+      this._hideErrorMessage(inputElement);
     } else {
-      showErrorMessage(inputElement);
+      this._showErrorMessage(inputElement);
     }
   }
 

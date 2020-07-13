@@ -1,40 +1,51 @@
-import {togglePopup} from "./utils.js";
-import {fullImage} from "./utils.js";
+import {togglePopup, fullImage} from "./utils.js";
 
 export default class Card {
   constructor(data, templateSelector) {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
-  }
+  };
 
   _getTemplate() {
     const cardTemplate = document.querySelector(this._templateSelector).content.querySelector(".card__item").cloneNode(true);
 
     return cardTemplate;
-  }
+  };
 
   _setEventListeners() {
     const cardImage = this._cardElement.querySelector(".card__image");
     const buttonLike = this._cardElement.querySelector(".button__like");
     const buttonRemove = this._cardElement.querySelector(".button__remove");
 
-    cardImage.addEventListener("click", () => this._handleFullImage(data));
+    cardImage.addEventListener("click", (data) => this._handleFullImage(data));
     buttonLike.addEventListener("click", this._handleHeartColor);
     buttonRemove.addEventListener("click", this._handleRemoveCard);
-  }
+  };
 
-  _handleFullImage() {
-    fullImage(data);
-  }
+  _handleFullImage(data) {
+    const popupFullImage = document.querySelector(".popup_type_image");
+    const popupImage = document.querySelector(".popup__image");
+    const popupCaption = document.querySelector(".popup__caption");
+    popupImage.src = data._link;
+    popupImage.alt = data._name;
+    popupCaption.textContent = data._name;
+    togglePopup(popupFullImage);
+    const popupBackgroundImage = popupFullImage.querySelector(".popup__background");
+    popupBackgroundImage.addEventListener("click", function() {
+      if (popupFullImage.classList.contains("popup_active")) {
+        togglePopup(popupFullImage);
+      }
+    })
+  };
 
-  _handleHeartColor() {
-    buttonLike.classList.toggle("button__like_activated");
-  }
+  _handleHeartColor(evt) {
+    evt.target.classList.toggle("button__like_activated");
+  };
 
   _handleRemoveCard(evt) {
     evt.target.closest(".card__item").remove();
-  }
+  };
 
   generateCard() {
     this._getTemplate();
@@ -47,4 +58,4 @@ export default class Card {
   
       return this._cardElement;
   };
-}
+};

@@ -1,4 +1,4 @@
-import {togglePopup} from "./utils.js";
+import {togglePopup, escapeClose} from "./utils.js";
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
 
@@ -88,47 +88,14 @@ buttonClose.addEventListener('click', () => {
   togglePopup(popupEdit);
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
 //Add card popup
 const buttonAdd = document.querySelector(".button__add");
 const buttonCloseAdd = popupAdd.querySelector(".button__close");
 const inputTitle = document.querySelector(".popup__input_title");
 const inputImageLink = document.querySelector(".popup__input_image-link");
 
-function addCard () {
+function addCard (data) {
   togglePopup(popupAdd);
-  createCard();
 
   const popupBackgroundAdd = popupAdd.querySelector(".popup__background");
   popupBackgroundAdd.addEventListener("click", function() {

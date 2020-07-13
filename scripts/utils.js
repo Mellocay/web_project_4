@@ -16,13 +16,13 @@ function escapeClose(evt) {
 
 const popupFullImage = document.querySelector(".popup_type_image");
 const buttonCloseImage = popupFullImage.querySelector(".button__close");
-const popupImage = document.querySelector(".popup__image");
-const popupCaption = document.querySelector(".popup__caption");
 
-function fullImage(name, link) {
-  popupImage.src = link;
-  popupImage.alt = name;
-  popupCaption.textContent = name;
+
+
+function fullImage(data) {
+  popupImage.src = data.link;
+  popupImage.alt = data.name;
+  popupCaption.textContent = data.name;
   togglePopup(popupFullImage);
   const popupBackgroundImage = popupFullImage.querySelector(".popup__background");
   popupBackgroundImage.addEventListener("click", function() {
@@ -35,10 +35,6 @@ buttonCloseImage.addEventListener('click', () => {
   togglePopup(popupFullImage);
 });
 
-function changeHeartColor() {
-  buttonLike.classList.toggle("button__like_activated");
-}
-
-export {changeHeartColor};
 export {togglePopup};
+export {escapeClose};
 export {fullImage};
