@@ -16,13 +16,13 @@ function escapeClose(evt) {
 
 const popupFullImage = document.querySelector(".popup_type_image");
 const buttonCloseImage = popupFullImage.querySelector(".button__close");
+const popupImage = document.querySelector(".popup__image");
+const popupCaption = document.querySelector(".popup__caption");
 
-
-
-function fullImage(data) {
-  popupImage.src = data.link;
-  popupImage.alt = data.name;
-  popupCaption.textContent = data.name;
+function fullImage(link, name) {
+  popupImage.src = link;
+  popupImage.alt = name;
+  popupCaption.textContent = name;
   togglePopup(popupFullImage);
   const popupBackgroundImage = popupFullImage.querySelector(".popup__background");
   popupBackgroundImage.addEventListener("click", function() {

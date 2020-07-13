@@ -1,4 +1,4 @@
-import {togglePopup, fullImage} from "./utils.js";
+import {fullImage} from "./utils.js";
 
 export default class Card {
   constructor(data, templateSelector) {
@@ -23,20 +23,8 @@ export default class Card {
     buttonRemove.addEventListener("click", this._handleRemoveCard);
   };
 
-  _handleFullImage(data) {
-    const popupFullImage = document.querySelector(".popup_type_image");
-    const popupImage = document.querySelector(".popup__image");
-    const popupCaption = document.querySelector(".popup__caption");
-    popupImage.src = data._link;
-    popupImage.alt = data._name;
-    popupCaption.textContent = data._name;
-    togglePopup(popupFullImage);
-    const popupBackgroundImage = popupFullImage.querySelector(".popup__background");
-    popupBackgroundImage.addEventListener("click", function() {
-      if (popupFullImage.classList.contains("popup_active")) {
-        togglePopup(popupFullImage);
-      }
-    })
+  _handleFullImage(link, name) {
+    fullImage(link, name);
   };
 
   _handleHeartColor(evt) {
