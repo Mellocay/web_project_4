@@ -18,7 +18,7 @@ export default class Card {
     const buttonLike = this._cardElement.querySelector(".button__like");
     const buttonRemove = this._cardElement.querySelector(".button__remove");
 
-    cardImage.addEventListener("click", (data) => this._handleFullImage(this._link, this._name));
+    cardImage.addEventListener("click", () => this._handleFullImage(this._link, this._name));
     buttonLike.addEventListener("click", this._handleHeartColor);
     buttonRemove.addEventListener("click", this._handleRemoveCard);
   };
@@ -41,8 +41,7 @@ export default class Card {
     this._setEventListeners();
     this._cardElement.querySelector(".card__title").textContent = this._name;
   
-    this._cardElement.querySelector(".card__image").style.background = `url(${this._link})`;
-    this._cardElement.querySelector(".card__image").style.backgroundSize = "cover";
+    this._cardElement.querySelector(".card__image").style.backgroundImage = `url(${this._link})`;
   
       return this._cardElement;
   };

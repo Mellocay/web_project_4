@@ -26,12 +26,12 @@
     <section class="popup popup_type_edit-button">
       <div class="popup__background popup__background"></div>
       <div class="popup__container">
-        <button class="button button__close"></button>
+        <button type="submit" class="button button__close"></button>
         <form class="popup__form">
           <h2 class="popup__title">Edit profile</h2>
-          <input id="profile-name" type="text" value="" placeholder="Name" class="popup__input popup__input_name" name="name" required minlength="2" maxlength="40" novalidate>
+          <input id="profile-name" type="text" value="" placeholder="Name" class="popup__input popup__input_name" name="name" required minlength="2" maxlength="40">
           <span id="profile-name-error" class="popup__error popup__error_visible"></span>
-          <input id="profile-occupation" type="text" value="" placeholder="Occupation" class="popup__input popup__input_occupation" name="occupation" required minlength="2" maxlength="200" novalidate>
+          <input id="profile-occupation" type="text" value="" placeholder="Occupation" class="popup__input popup__input_occupation" name="occupation" required minlength="2" maxlength="200">
           <span id="profile-occupation-error" class="popup__error popup__error_visible"></span>
           <button type="submit" class="button button__submit button__submit_save button__submit_disabled" disabled>Save</button>
         </form>
@@ -43,11 +43,11 @@
         <button class="button button__close"></button>
         <form class="popup__form popup__form_type_add-button">
           <h2 class="popup__title popup__title_type_add-button">New Place</h2>
-          <input id="card-title" type="text" value="" placeholder="title" class="popup__input popup__input_title" name="title" required minlength="1" maxlength="30" novalidate>
+          <input id="card-title" type="text" value="" placeholder="title" class="popup__input popup__input_title" name="title" required minlength="1" maxlength="30">
           <span id="card-title-error" class="popup__error popup__error_visible"></span>
-          <input id="card-url" type="url" value="" placeholder="image link" class="popup__input popup__input_image-link" name="image-link" required novalidate>
+          <input id="card-url" type="url" value="" placeholder="image link" class="popup__input popup__input_image-link" name="image-link" required>
           <span id="card-url-error" class="popup__error popup__error_visible"></span>
-          <button type="submit" class="button button__submit button__submit_create button__submit_disabled"disabled>Create</button>
+          <button type="submit" class="button button__submit button__submit_create button__submit_disabled" disabled>Create</button>
         </form>
       </div>
     </section>

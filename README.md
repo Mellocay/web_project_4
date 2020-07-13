@@ -1,4 +1,4 @@
-# Project 6: Around The U.S.
+# Project 7: Around The U.S.
 
 ### Overview
 
@@ -17,6 +17,8 @@ For Project 4 I had to learn how to use const, querySelector, functions, textCon
 For Project 5 I expanded my knowledge of add event listeners, functions, and how to link html, css, and jS.
 
 Project 6 was all about form validation and user experience.  I also worked with more complex even listeners.  
+
+For Project 7, I had to dive deeper into my understanding of the code and why it works.  I had to simplify it and box it into classes and create modules.  
 
 **Conclusion**
 
