@@ -19,10 +19,10 @@ const buttonCloseImage = popupFullImage.querySelector(".button__close");
 const popupImage = document.querySelector(".popup__image");
 const popupCaption = document.querySelector(".popup__caption");
 
-function fullImage(link, name) {
-  popupImage.src = link;
-  popupImage.alt = name;
-  popupCaption.textContent = name;
+function fullImage(this._link, this._name) {
+  popupImage.src = this._link;
+  popupImage.alt = this._name;
+  popupCaption.textContent = this._name;
   togglePopup(popupFullImage);
   const popupBackgroundImage = popupFullImage.querySelector(".popup__background");
   popupBackgroundImage.addEventListener("click", function() {
