@@ -1,6 +1,13 @@
-import {togglePopup, escapeClose} from "./utils.js";
-import FormValidator from "./FormValidator.js";
-import Card from "./Card.js";
+import FormValidator from "../components/FormValidator.js";
+import Card from "../components/Card.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
+import {popupImage, formEdit, formAdd, buttonAdd, buttonEdit} from "../Utils/constants.js";
+
+
+import "../pages/index.css";
 
 const initialCards = [
   {
@@ -37,16 +44,69 @@ const defaultConfig = {
   errorClass: "popup__error_visible"
 };
 
-const popupEdit = document.querySelector(".popup_type_edit-button");
-const popupAdd = document.querySelector(".popup_type_add-button");
-const formEdit = popupEdit.querySelector(".popup__form");
-const formAdd = popupAdd.querySelector(".popup__form");
+const image = new PopupWithImage(popupImage);
+image.setEventListeners();
+
+const newProfile = new UserInfo();
+
+
 
 const editProfileValidator = new FormValidator(defaultConfig, formEdit);
 editProfileValidator.enableValidation();
 const addCardValidator = new FormValidator(defaultConfig, formAdd);
 addCardValidator.enableValidation();
 
+const cardGrid = new Section({
+  items: initialCards,
+  renderer: (data) => {
+    const card = new Card(data, cardTemplate);
+    
+    const cardElement = card.generateCard();
+    cardGrid.addItem(cardElement);
+  }
+});
+
+const editForm = new PopupWithForm(popupEdit, (data) => {
+  newProfile.setUserInfo(data);
+});
+
+const addForm = new PopupWithForm(popupAdd, (data) => {
+  const newCard = new Card(data, cardTemplate);
+    const cardElement = newCard.generateCard();
+
+    cardGrid.addItem(cardElement);
+});
+
+  buttonAdd.addEventListener("click", () => {addForm.open()});
+
+  buttonEdit.addEventListener("click", () => {
+    const profileInfo = newProfile.getUserInfo();
+    inputName.value = profileInfo.name;
+    inputOccupation.value = profileInfo.occupation;
+    editForm.open();
+  });
+
+cardGrid.renderItems();
+
+addForm.setEventListeners();
+
+editForm.setEventListeners();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 //add new card
 const cardItems = document.querySelector(".card__items");
 const createCard= (data) => {
@@ -114,7 +174,4 @@ formAdd.addEventListener("submit", (e) => {
   createCard({name:inputTitle.value, link: inputImageLink.value});
   togglePopup(popupAdd);
 });
-
-
-// inputTitle.value, inputImageLink.value
-// this._link.value, this.name.value
+*/
