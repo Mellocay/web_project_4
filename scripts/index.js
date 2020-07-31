@@ -59,7 +59,9 @@ addCardValidator.enableValidation();
 const cardGrid = new Section({
   items: initialCards,
   renderer: (data) => {
-    const card = new Card(data, ".card__template", handleCardClick);
+    const card = new Card(data, ".card__template", handleCardClick => (data) {
+      popupImage.open(data);
+    });
     
     const cardElement = card.generateCard();
     cardGrid.addItem(cardElement);
@@ -71,7 +73,10 @@ const editForm = new PopupWithForm(popupEdit, (data) => {
 });
 
 const addForm = new PopupWithForm(popupAdd, (data) => {
-  const newCard = new Card(data, ".card__template", handleCardClick);
+  const newCard = new Card(data, ".card__template", 
+  handleCardClick => (data) {
+    popupImage.open(data);
+  });
     const cardElement = newCard.generateCard();
 
     cardGrid.addItem(cardElement);
