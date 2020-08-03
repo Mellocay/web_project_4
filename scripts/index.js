@@ -44,8 +44,8 @@ const defaultConfig = {
   errorClass: "popup__error_visible"
 };
 
-const image = new PopupWithImage(popupImage);
-image.setEventListeners();
+const imagePopup = new PopupWithImage(popupImage);
+popupImage.setEventListeners();
 
 const newProfile = new UserInfo();
 
@@ -60,19 +60,19 @@ const cardGrid = new Section({
   items: initialCards,
   renderer: (data) => {
     const card = new Card(data, ".card__template", (data) => {
-      popupImage.open(data);
+      imagePopup.open(data);
     });
     
     const cardElement = card.generateCard();
     cardGrid.addItem(cardElement);
   }
-});
+}, ".card__items");
 
-const editForm = new PopupWithForm(popupEdit, (data) => {
+const editForm = new PopupWithForm(".popup_type_edit-button", (data) => {
   newProfile.setUserInfo(data);
 });
 
-const addForm = new PopupWithForm(popupAdd, (data) => {
+const addForm = new PopupWithForm(".popup_type_add-button", (data) => {
   const newCard = new Card(data, ".card__template", (data) => {
     popupImage.open(data);
   });

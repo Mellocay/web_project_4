@@ -7,6 +7,7 @@ export default class UserInfo {
   getUserInfo() {
     //returns an object with information about the user. 
     this._newProfile = {name: this._name.textContent, occupation: this._occupation.textContent};
+    return this._newProfile;
   }
 
   setUserInfo(data) {
