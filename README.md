@@ -1,4 +1,4 @@
-# Project 7: Around The U.S.
+# Project 8: Around The U.S.
 
 ### Overview
 
@@ -19,6 +19,8 @@ For Project 5 I expanded my knowledge of add event listeners, functions, and how
 Project 6 was all about form validation and user experience.  I also worked with more complex even listeners.  
 
 For Project 7, I had to dive deeper into my understanding of the code and why it works.  I had to simplify it and box it into classes and create modules.  
+
+Project 8 divided the code up into even more modules.  They make the code easier to work with since each module has it's own function.
 
 **Conclusion**
 
