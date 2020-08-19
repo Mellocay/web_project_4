@@ -5,6 +5,12 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import {popupImage, formEdit, formAdd, buttonAdd, buttonEdit, inputName, inputOccupation} from "../Utils/constants.js";
+import oregonNightSky from "../images/oregon-sky.jpg";
+import multnomahFalls from "../images/multnomah-falls.jpg";
+import mtHood from "../images/mt-hood.jpg"
+import haystackRock from "../images/haystack-rock.jpg";
+import ecolaPark from "../images/ecola-park.jpg"
+import craterLake from "../images/crater-lake.jpg"
 
 
 import "./index.css";
@@ -12,27 +18,27 @@ import "./index.css";
 const initialCards = [
   {
       name: "Oregon Night Sky",
-      link: "../images/oregon-sky.jpg"
+      link: oregonNightSky
   },
   {
       name: "Multnomah Falls, Oregon",
-      link: "../images/multnomah-falls.jpg"
+      link: multnomahFalls
   },
   {
       name: "Mt. Hood, Oregon",
-      link: "../images/mt-hood.jpg"
+      link: mtHood
   },
   {
       name: "Haystack Rock, Oregon",
-      link: "../images/haystack-rock.jpg"
+      link: haystackRock
   },
   {
       name: "Ecola State Park, Oregon",
-      link: "../images/ecola-park.jpg"
+      link: ecolaPark
   },
   {
       name: "Crater Lake, Oregon",
-      link: "../images/crater-lake.jpg"
+      link: craterLake
   }
 ];
 
