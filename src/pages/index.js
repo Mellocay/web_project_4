@@ -12,27 +12,27 @@ import "./index.css";
 const initialCards = [
   {
       name: "Oregon Night Sky",
-      link: "./images/oregon-sky.jpg"
+      link: "../images/oregon-sky.jpg"
   },
   {
       name: "Multnomah Falls, Oregon",
-      link: "./images/multnomah-falls.jpg"
+      link: "../images/multnomah-falls.jpg"
   },
   {
       name: "Mt. Hood, Oregon",
-      link: "./images/mt-hood.jpg"
+      link: "../images/mt-hood.jpg"
   },
   {
       name: "Haystack Rock, Oregon",
-      link: "./images/haystack-rock.jpg"
+      link: "../images/haystack-rock.jpg"
   },
   {
       name: "Ecola State Park, Oregon",
-      link: "./images/ecola-park.jpg"
+      link: "../images/ecola-park.jpg"
   },
   {
       name: "Crater Lake, Oregon",
-      link: "./images/crater-lake.jpg"
+      link: "../images/crater-lake.jpg"
   }
 ];
 
