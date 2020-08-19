@@ -1,38 +1,38 @@
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import PopupWithImage from "../components/PopupWithImage.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import Section from "../components/Section.js";
-import UserInfo from "../components/UserInfo.js";
+import PopupWithForm from "../components/PopupWithForm.js.js";
+import Section from "../components/Section.js.js";
+import UserInfo from "../components/UserInfo.js.js";
 import {popupImage, formEdit, formAdd, buttonAdd, buttonEdit, inputName, inputOccupation} from "../Utils/constants.js";
 
 
-import "../pages/index.css";
+import "./index.css";
 
 const initialCards = [
   {
       name: "Oregon Night Sky",
-      link: "./images/oregon-sky.jpg"
+      link: "../images/oregon-sky.jpg"
   },
   {
       name: "Multnomah Falls, Oregon",
-      link: "./images/multnomah-falls.jpg"
+      link: "../images/multnomah-falls.jpg"
   },
   {
       name: "Mt. Hood, Oregon",
-      link: "./images/mt-hood.jpg"
+      link: "../images/mt-hood.jpg"
   },
   {
       name: "Haystack Rock, Oregon",
-      link: "./images/haystack-rock.jpg"
+      link: "../images/haystack-rock.jpg"
   },
   {
       name: "Ecola State Park, Oregon",
-      link: "./images/ecola-park.jpg"
+      link: "../images/ecola-park.jpg"
   },
   {
       name: "Crater Lake, Oregon",
-      link: "./images/crater-lake.jpg"
+      link: "../images/crater-lake.jpg"
   }
 ];
 
