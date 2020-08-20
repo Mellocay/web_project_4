@@ -78,14 +78,15 @@ const editForm = new PopupWithForm(".popup_type_edit-button", (data) => {
   newProfile.setUserInfo(data);
 });
 
-const addForm = new PopupWithForm(".popup_type_add-button", (data) => {
-  const newCard = new Card({ name: data.title, link: data["image-link"] }, ".card__template", (data) => {
-    imagePopup.open(data);
-  });
+const addForm = new PopupWithForm(".popup_type_add-button", createCard);
+
+function createCard(data) {
+  const newCard = new Card(data, ".card__template", (data) => imagePopup.open(data)
+);
   const cardElement = newCard.generateCard();
 
   cardGrid.addItem(cardElement);
-});
+}
 
 buttonAdd.addEventListener("click", () => { addForm.open() });
 
