@@ -18,9 +18,8 @@ export default class PopupWithForm extends Popup {
 
   setEventListeners() {
     this._formElement.addEventListener("submit", (evt) => {
-      const formValues = this._getInputValues();
       evt.preventDefault();
-      this._handleFormSubmit({ name: formValues.title, link: formValues["image-link"] });
+      this._handleFormSubmit(this._getInputValues());
       this.close();
     })
     super.setEventListeners();
