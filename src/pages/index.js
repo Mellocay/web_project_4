@@ -65,7 +65,7 @@ addCardValidator.enableValidation();
 const cardGrid = new Section({
   items: initialCards,
   renderer: (data) => {
-    const card = new Card(data, ".card__template", (data) => {
+    const card = new Card(data, ".card__template", () => {
       imagePopup.open(data);
       console.log("cardGrid new Section");
     });
@@ -80,7 +80,7 @@ const editForm = new PopupWithForm(".popup_type_edit-button", (data) => {
 });
 
 const addForm = new PopupWithForm(".popup_type_add-button", (data) => {
-  const newCard = new Card({name: data.name, link: data["link"]}, ".card__template", (data) => {
+  const newCard = new Card(data, ".card__template", (data) => {
     imagePopup.open(data);
     console.log("cardGrid new Popupwith form");
   });
