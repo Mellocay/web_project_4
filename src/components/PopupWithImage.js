@@ -15,5 +15,6 @@ export default class PopupWithImage extends Popup {
     this._caption.textContent = this._name;
 
     super.open();
+    console.log("popupwithImage");
   }
 }
