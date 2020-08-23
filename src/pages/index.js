@@ -72,7 +72,7 @@ const cardGrid = new Section({
     
     const cardElement = card.generateCard();
     cardGrid.addItem(cardElement);
-  }
+  },
 }, ".card__items");
 
 const editForm = new PopupWithForm(".popup_type_edit-button", (data) => {

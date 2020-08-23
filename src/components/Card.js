@@ -1,5 +1,3 @@
-import { popupImage, popupCaption } from "../Utils/constants";
-
 export default class Card {
   constructor(data, templateSelector, handleCardClick) {
     this._name = data.name;
@@ -12,7 +10,6 @@ export default class Card {
     const cardElement = document.querySelector(this._templateSelector).content.querySelector(".card__item").cloneNode(true);
 
     this._cardElement = cardElement;
-    return this._cardElement;
   };
 
   _setEventListeners() {
@@ -27,9 +24,11 @@ export default class Card {
   }
 
   _handleCardClick() {
-    popupImage.src = this._link;
-    popupImage.alt = this._name;
-    popupCaption.textContent = this._name;
+    this._image = this._popupElement.querySelector(".popup__image");
+    this._caption = this._popupElement.querySelector(".popup__caption");
+    this._image.src = this._link;
+    this._image.alt = this._name;
+    this._caption.textContent = this._name;
   }
 
   generateCard() {
