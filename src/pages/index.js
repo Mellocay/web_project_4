@@ -4,7 +4,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
-import { formEdit, formAdd, buttonAdd, buttonEdit, inputName, inputOccupation } from "../Utils/constants.js";
+import { popupEdit, popupAdd, formEdit, formAdd, buttonAdd, buttonEdit, inputName, inputOccupation } from "../Utils/constants.js";
 import oregonNightSky from "../images/oregon-sky.jpg";
 import multnomahFalls from "../images/multnomah-falls.jpg";
 import mtHood from "../images/mt-hood.jpg"
@@ -53,49 +53,45 @@ const defaultConfig = {
 const imagePopup = new PopupWithImage('.popup_type_image');
 imagePopup.setEventListeners();
 
-const newProfile = new UserInfo();
-
-
+const newProfile = new UserInfo(".profile__name", ".profile__occupation");
 
 const editProfileValidator = new FormValidator(defaultConfig, formEdit);
 editProfileValidator.enableValidation();
 const addCardValidator = new FormValidator(defaultConfig, formAdd);
 addCardValidator.enableValidation();
 
+function showCard(data) {
+  const card = new Card (data, ".card__template", (data) => {
+    imagePopup.open(data)})
+  const cardElement = card.generateCard();
+  cardGrid.addItem(cardElement);
+}
+
 const cardGrid = new Section({
   items: initialCards,
   renderer: (data) => {
-    const card = new Card(data, ".card__template", () => {
-      imagePopup.open(data);
-      console.log("cardGrid new Section");
-    });
-    
-    const cardElement = card.generateCard();
-    cardGrid.addItem(cardElement);
-  },
+    showCard(data);
+  }
 }, ".card__items");
 
-const editForm = new PopupWithForm(".popup_type_edit-button", (data) => {
-  newProfile.setUserInfo(data);
+const editForm = new PopupWithForm({popupElement:popupEdit, handleFormSubmit: (data)=> {
+  newProfile.setUserInfo({userName: inputName.value, userOccupation: inputOccupation.value });
+  }
+})
+
+const addForm = new PopupWithForm({popupElement:popupAdd, handleFormSubmit:  (data) => {
+  showCard(data)
+  }
 });
 
-const addForm = new PopupWithForm(".popup_type_add-button", (data) => {
-  const newCard = new Card(data, ".card__template", (data) => {
-    imagePopup.open(data);
-    console.log("cardGrid new Popupwith form");
-  });
-    const cardElement = newCard.generateCard();
-    cardGrid.addItem(cardElement);
+buttonAdd.addEventListener("click", () => {addForm.open()});
+
+buttonEdit.addEventListener("click", () => {
+  const profileInfo = newProfile.getUserInfo();
+  inputName.value = profileInfo.name;
+  inputOccupation.value = profileInfo.occupation;
+  editForm.open();
 });
-
-  buttonAdd.addEventListener("click", () => {addForm.open()});
-
-  buttonEdit.addEventListener("click", () => {
-    const profileInfo = newProfile.getUserInfo();
-    inputName.value = profileInfo.name;
-    inputOccupation.value = profileInfo.occupation;
-    editForm.open();
-  });
 
 cardGrid.renderItems();
 

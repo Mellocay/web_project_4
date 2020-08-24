@@ -13,22 +13,15 @@ export default class Card {
   };
 
   _setEventListeners() {
-    this._cardElement.querySelector(".card__image").addEventListener("click", () => this._handleCardClick());
-    
+    this._cardElement.querySelector(".card__image").addEventListener("click", () => { 
+      this._handleCardClick({name:this._name, link:this._link})
+    })
     this._cardElement.querySelector(".button__like").addEventListener("click", (evt) => {
       evt.target.classList.toggle("button__like_activated");
     })
     this._cardElement.querySelector(".button__remove").addEventListener("click", (evt) => {
       evt.target.closest(".card__item").remove();
     })
-  }
-
-  _handleCardClick() {
-    this._image = this._popupElement.querySelector(".popup__image");
-    this._caption = this._popupElement.querySelector(".popup__caption");
-    this._image.src = this._link;
-    this._image.alt = this._name;
-    this._caption.textContent = this._name;
   }
 
   generateCard() {

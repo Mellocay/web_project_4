@@ -1,18 +1,16 @@
 export default class UserInfo {
-  constructor() {
-    this._name = document.querySelector(".profile__name");
-    this._occupation = document.querySelector(".profile__occupation");
+  constructor(nameSelector, occupationSelector) {
+    this._name = document.querySelector(nameSelector);
+    this._occupation = document.querySelector(occupationSelector);
   }
-
   getUserInfo() {
-    //returns an object with information about the user. 
-    this._newProfile = {name: this._name.textContent, occupation: this._occupation.textContent};
+    this._newProfile =  { name: this._name.textContent, occupation: this._occupation.textContent };
     return this._newProfile;
   }
+  setUserInfo({ userName, userOccupation }) {
 
-  setUserInfo(data) {
-    //which takes new user data and adds it on the page.
-    this._name.textContent = data.name;
-    this._occupation.textContent = data.occupation;
+    this._name.textContent = userName;
+    this._occupation.textContent = userOccupation;
+
   }
 }

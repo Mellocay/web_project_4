@@ -7,7 +7,6 @@ export default class Popup {
   open() {
     this._popupElement.classList.add("popup_active");
     document.addEventListener("keyup", this._handleEscClose);
-    console.log("popup");
   }
 
   close() {
