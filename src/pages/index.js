@@ -4,7 +4,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
-import { popupEdit, popupAdd, formEdit, formAdd, buttonAdd, buttonEdit, inputName, inputOccupation } from "../Utils/constants.js";
+import { popupEdit, popupAdd, popupImage, formEdit, formAdd, buttonAdd, buttonEdit, inputName, inputOccupation } from "../Utils/constants.js";
 import oregonNightSky from "../images/oregon-sky.jpg";
 import multnomahFalls from "../images/multnomah-falls.jpg";
 import mtHood from "../images/mt-hood.jpg"
@@ -50,7 +50,7 @@ const defaultConfig = {
   errorClass: "popup__error_visible"
 };
 
-const imagePopup = new PopupWithImage('.popup_type_image');
+const imagePopup = new PopupWithImage(popupImage);
 imagePopup.setEventListeners();
 
 const newProfile = new UserInfo(".profile__name", ".profile__occupation");
@@ -74,15 +74,15 @@ const cardGrid = new Section({
   }
 }, ".card__items");
 
-const editForm = new PopupWithForm({popupElement:popupEdit, handleFormSubmit: (data)=> {
+const editForm = new PopupWithForm(popupEdit, (data)=> {
   newProfile.setUserInfo({userName: inputName.value, userOccupation: inputOccupation.value });
   }
-})
+)
 
-const addForm = new PopupWithForm({popupElement:popupAdd, handleFormSubmit:  (data) => {
+const addForm = new PopupWithForm(popupAdd, (data) => {
   showCard(data)
   }
-});
+);
 
 buttonAdd.addEventListener("click", () => {addForm.open()});
 
