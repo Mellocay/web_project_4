@@ -11,9 +11,20 @@ import mtHood from "../images/mt-hood.jpg"
 import haystackRock from "../images/haystack-rock.jpg";
 import ecolaPark from "../images/ecola-park.jpg"
 import craterLake from "../images/crater-lake.jpg"
-
-
+import Api from "../components/Api.js";
 import "./index.css";
+
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/group-4",
+  headers: {
+    authorization: "3f243dd2-37f2-4509-9805-b98e5f815aea",
+    "Content-Type": "application/json"
+  }
+});
+
+api.getCardList().then(res => {
+  console.log("is it working?")
+})
 
 const initialCards = [
   {
