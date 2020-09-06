@@ -8,8 +8,8 @@ export default class UserInfo {
     return this._newProfile;
   }
  
-  setUserInfo({ userName, userOccupation }) {
-    this._name.textContent = userName;
-    this._occupation.textContent = userOccupation;
+  setUserInfo({ profileName, profileDescription }) {
+    this._name.textContent = profileName;
+    this._occupation.textContent = profileDescription;
   }
 }

@@ -4,15 +4,16 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
-import { popupEdit, popupAdd, popupImage, formEdit, formAdd, buttonAdd, buttonEdit, inputName, inputOccupation } from "../Utils/constants.js";
-import oregonNightSky from "../images/oregon-sky.jpg";
-import multnomahFalls from "../images/multnomah-falls.jpg";
-import mtHood from "../images/mt-hood.jpg"
-import haystackRock from "../images/haystack-rock.jpg";
-import ecolaPark from "../images/ecola-park.jpg"
-import craterLake from "../images/crater-lake.jpg"
+import { popupEdit, popupAdd, popupImage, formEdit, formAdd, buttonAdd, buttonEdit, inputName, inputOccupation, initialCards, defaultConfig, popupConfig, profileConfig, cardsConfig } from "../Utils/constants.js";
 import Api from "../components/Api.js";
 import "./index.css";
+
+// function showCard(data) {
+  // const card = new Card (data, ".card__template", (data) => {
+  //   imagePopup.open(data)})
+  // const cardElement = card.generateCard();
+  // cardGrid.addItem(cardElement);
+// }
 
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-4",
@@ -22,80 +23,93 @@ const api = new Api({
   }
 });
 
+// api.getAppInfo().then((res) => {
+//   console.log("data", res);
+//   console.log("initial", res);
+//   const UserId = res._id;
 api.getCardList().then(res => {
-  console.log("is it working?")
+  const cardGrid = new Section({
+    items: res,
+    renderer: (data) => {
+      const card = new Card({
+        data, 
+        handleCardClick: () => {
+          imagePopup.open(data);
+        },
+        handleDeleteClick: (cardId) => {
+          api.removeCard(cardId)
+        }
+      }, cardsConfig.cardSelector);      
+      // const cardElement = card.generateCard();
+      cardGrid.addItem(card.generateCard());
+    }
+  }, cardsConfig.placesWrap
+  );
+
+  cardGrid.renderItems();
+
+
+
+  const addForm = new PopupWithForm({
+    popupSelector: popupConfig.popupAdd, 
+    handleFormSubmit: (data) => {
+      api.addCard(data).then(res => {
+      const card = new Card({
+        data, 
+        handleCardClick: () => {
+          imagePopup.open(data);
+        }
+      }, cardsConfig.cardSelector);
+  // const cardElement = card.generateCard();
+  cardGrid.addItem(card.generateCard())
+  });
+    }
+  });
+
+//   showCard(data)
+ 
+  addForm.setEventListeners();
+
+  buttonAdd.addEventListener("click", () => {
+    addForm.open();
+  });
 })
 
-const initialCards = [
-  {
-      name: "Oregon Night Sky",
-      link: oregonNightSky
-  },
-  {
-      name: "Multnomah Falls, Oregon",
-      link: multnomahFalls
-  },
-  {
-      name: "Mt. Hood, Oregon",
-      link: mtHood
-  },
-  {
-      name: "Haystack Rock, Oregon",
-      link: haystackRock
-  },
-  {
-      name: "Ecola State Park, Oregon",
-      link: ecolaPark
-  },
-  {
-      name: "Crater Lake, Oregon",
-      link: craterLake
-  }
-];
+const newProfile = new UserInfo(".profile__name", ".profile__occupation");
 
-const defaultConfig = {
-  inputSelector: ".popup__input",
-  submitButton: ".button__submit",
-  inactiveButtonClass: "button__submit_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible"
-};
+api.getUserInfo().then(res => {
+  console.log("profile", res);
+  newProfile.setUserInfo({userName: res.name, userOccupation: res.about})
+})
 
 const imagePopup = new PopupWithImage(popupImage);
 imagePopup.setEventListeners();
 
-const newProfile = new UserInfo(".profile__name", ".profile__occupation");
 
 const editProfileValidator = new FormValidator(defaultConfig, formEdit);
 editProfileValidator.enableValidation();
 const addCardValidator = new FormValidator(defaultConfig, formAdd);
 addCardValidator.enableValidation();
 
-function showCard(data) {
-  const card = new Card (data, ".card__template", (data) => {
-    imagePopup.open(data)})
-  const cardElement = card.generateCard();
-  cardGrid.addItem(cardElement);
-}
-
-const cardGrid = new Section({
-  items: initialCards,
-  renderer: (data) => {
-    showCard(data);
+const editForm = new PopupWithForm({
+  popupSelector: popupConfig.popupEdit,
+  handleFormSubmit: (data)=> {
+    newProfile.setUserInfo({userName: inputName.value, userOccupation: inputOccupation.value });
   }
-}, ".card__items");
+})
 
-const editForm = new PopupWithForm(popupEdit, (data)=> {
-  newProfile.setUserInfo({userName: inputName.value, userOccupation: inputOccupation.value });
-  }
-)
+// const addForm = new PopupWithForm(".popup_type_add-button", (data) => {
+//   const card = new Card (data, ".card__template", (data) => {
+//   imagePopup.open(data)})
+// const cardElement = card.generateCard();
+// cardGrid.addItem(cardElement);
+// });
+// addForm.setEventListeners();
 
-const addForm = new PopupWithForm(popupAdd, (data) => {
-  showCard(data)
-  }
-);
 
-buttonAdd.addEventListener("click", () => {addForm.open()});
+
+// buttonAdd.addEventListener("click", () => {addForm.open()});
+
 
 buttonEdit.addEventListener("click", () => {
   const profileInfo = newProfile.getUserInfo();
@@ -104,8 +118,6 @@ buttonEdit.addEventListener("click", () => {
   editForm.open();
 });
 
-cardGrid.renderItems();
 
-addForm.setEventListeners();
 
 editForm.setEventListeners();

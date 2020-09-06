@@ -4,18 +4,65 @@ export default class Api {
     this._headers = headers;
   }
 
+  _checkRes(res) {
+    return (res.ok ? res.json() : Promise.reject("Error!" + res.statusText + res.status));
+    console.log("checked");
+  }
+
   getInitialCards() {
 
   }
 
   //other methods for working with the API
   getCardList() {
-    fetch(this._baseUrl + '/cards', {
+    return fetch(this._baseUrl + "/cards", {
       headers: this._headers
     })
-    .then(res => res.ok ? res.json() : Promise.reject("Error!" + res.statusText + res.status))
+    .then(res => this._checkRes(res))
     .catch(err => console.log(err))
   }
+
+  getUserInfo() {
+    return fetch(this._baseUrl + "/users/me", {
+      headers: this._headers
+    })
+    .then(res => this._checkRes(res))
+    .catch(err => console.log(err))
+  }
+
+  getAppInfo() {
+    return Promise.all([this.getUserInfo(), this.getCardList()])
+  }
+
+  
+  addCard({ name, link }) {
+    return fetch(this._baseUrl + "/cards", {
+      headers: this._headers,
+      method: "POST",
+      body: JSON.stringify({
+        name,
+        link
+      })
+    })
+    .then(res => this._checkRes(res))
+    .catch(err => console.log(err))
+  }
+
+    // DELETE https://around.nomoreparties.co/v1/groupId/cards/cardId
+    removeCard(cardID) { }
+
+    // PUT https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
+    // DELETE https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
+    changeLikeCardStatus(cardID, like) { }
+
+    // PATCH https://around.nomoreparties.co/v1/groupId/users/me
+    setUserInfo({ name, about }) { }
+
+    // PATCH https://around.nomoreparties.co/v1/groupId/users/me/avatar
+    setUserAvatar({ avatar }) { }
+
+
+
 
 
 }
