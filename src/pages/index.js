@@ -51,7 +51,7 @@ api.getCardList().then(res => {
 
 
   const addForm = new PopupWithForm({
-    popupSelector: popupConfig.popupAdd, 
+    popupElement: popupConfig.popupAdd, 
     handleFormSubmit: (data) => {
       api.addCard(data).then(res => {
       const card = new Card({
@@ -92,11 +92,16 @@ const addCardValidator = new FormValidator(defaultConfig, formAdd);
 addCardValidator.enableValidation();
 
 const editForm = new PopupWithForm({
-  popupSelector: popupConfig.popupEdit,
+  popupElement: popupConfig.popupEdit,
   handleFormSubmit: (data)=> {
     newProfile.setUserInfo({userName: inputName.value, userOccupation: inputOccupation.value });
   }
 })
+// const profileConfig = {
+//   profileName: "profile__name",
+//   profileDescription: "profile__occupation"
+// };
+
 
 // const addForm = new PopupWithForm(".popup_type_add-button", (data) => {
 //   const card = new Card (data, ".card__template", (data) => {
