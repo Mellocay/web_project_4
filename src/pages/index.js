@@ -35,6 +35,7 @@ api.getCardList().then(res => {
         data, 
         handleCardClick: () => {
           imagePopup.open(data);
+          console.log(imagePopup);
         },
         handleDeleteClick: (cardId) => {
           api.removeCard(cardId)
@@ -51,7 +52,7 @@ api.getCardList().then(res => {
 
 
   const addForm = new PopupWithForm({
-    popupElement: popupConfig.popupAdd, 
+    popupElement: document.querySelector(popupConfig.popupAdd), 
     handleFormSubmit: (data) => {
       api.addCard(data).then(res => {
       const card = new Card({
@@ -75,12 +76,33 @@ api.getCardList().then(res => {
   });
 })
 
+
 const newProfile = new UserInfo(".profile__name", ".profile__occupation");
 
 api.getUserInfo().then(res => {
-  console.log("profile", res);
+  console.log("profile!!", res);
   newProfile.setUserInfo({userName: res.name, userOccupation: res.about})
 })
+
+function handleProfileEdit(data) {
+  api.setUserInfo({
+    name: data.name, 
+    about: data.about,
+   })
+  .then(res => {
+    newProfile.setUserInfo({
+      userName: data.name,
+      userOccupation: data.about});
+     console.log("hello....", res);
+    })
+}
+
+
+
+function submitProfileForm(data) {
+  handleProfileEdit(data);
+  //profileForm.open();
+}
 
 const imagePopup = new PopupWithImage(popupImage);
 imagePopup.setEventListeners();
@@ -92,9 +114,10 @@ const addCardValidator = new FormValidator(defaultConfig, formAdd);
 addCardValidator.enableValidation();
 
 const editForm = new PopupWithForm({
-  popupElement: popupConfig.popupEdit,
+  popupElement: document.querySelector(popupConfig.popupEdit),
   handleFormSubmit: (data)=> {
     newProfile.setUserInfo({userName: inputName.value, userOccupation: inputOccupation.value });
+    console.log(inputName.value, "hello");
   }
 })
 // const profileConfig = {

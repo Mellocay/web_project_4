@@ -9,10 +9,6 @@ export default class Api {
     console.log("checked");
   }
 
-  getInitialCards() {
-
-  }
-
   //other methods for working with the API
   getCardList() {
     return fetch(this._baseUrl + "/cards", {
@@ -42,7 +38,7 @@ export default class Api {
       body: JSON.stringify({
         name,
         link
-      })
+      }),
     })
     .then(res => this._checkRes(res))
     .catch(err => console.log(err))
@@ -53,10 +49,23 @@ export default class Api {
 
     // PUT https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
     // DELETE https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
-    changeLikeCardStatus(cardID, like) { }
+    changeLikeCardStatus(cardID, like) {
+      
+     }
 
-    // PATCH https://around.nomoreparties.co/v1/groupId/users/me
-    setUserInfo({ name, about }) { }
+  // PATCH https://around.nomoreparties.co/v1/groupId/users/me
+  setUserInfo({ name, about }) {
+    return fetch(this._baseUrl + "/users/me", {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        name: res.name,
+        about: res.about
+      }),
+    })
+    .then(res => this._checkRes(res))
+    .catch(err => console.log(err))
+  }
 
     // PATCH https://around.nomoreparties.co/v1/groupId/users/me/avatar
     setUserAvatar({ avatar }) { }

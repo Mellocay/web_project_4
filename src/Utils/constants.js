@@ -54,9 +54,9 @@ const defaultConfig = {
 };
 
 const popupConfig = {
-  popupEdit: "popup_type_edit-button",
-  popupAdd: "popup_type_add-button",
-  popupImage: "popup_type_image"
+  popupEdit: ".popup_type_edit-button",
+  popupAdd: ".popup_type_add-button",
+  popupImage: ".popup_type_image"
 };
 
 const profileConfig = {
@@ -69,4 +69,4 @@ const cardsConfig = {
   cardSelector: ".card__template"
 };
 
-export {  formEdit, formAdd, buttonEdit, buttonAdd, inputName, inputOccupation, initialCards, defaultConfig, popupConfig, profileConfig, cardsConfig };
+export { popupImage, formEdit, formAdd, buttonEdit, buttonAdd, inputName, inputOccupation, initialCards, defaultConfig, popupConfig, profileConfig, cardsConfig };
