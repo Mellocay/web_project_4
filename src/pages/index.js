@@ -84,26 +84,6 @@ api.getUserInfo().then(res => {
   newProfile.setUserInfo({userName: res.name, userOccupation: res.about})
 })
 
-function handleProfileEdit(data) {
-  api.setUserInfo({
-    name: data.name, 
-    about: data.about,
-   })
-  .then(res => {
-    newProfile.setUserInfo({
-      userName: data.name,
-      userOccupation: data.about});
-     console.log("hello....", res);
-    })
-}
-
-
-
-function submitProfileForm(data) {
-  handleProfileEdit(data);
-  //profileForm.open();
-}
-
 const imagePopup = new PopupWithImage(popupImage);
 imagePopup.setEventListeners();
 
@@ -115,37 +95,19 @@ addCardValidator.enableValidation();
 
 const editForm = new PopupWithForm({
   popupElement: document.querySelector(popupConfig.popupEdit),
-  handleFormSubmit: (data)=> {
-    newProfile.setUserInfo({userName: inputName.value, userOccupation: inputOccupation.value });
-    console.log(inputName.value, "hello");
+  handleFormSubmit: (data) => {
+    api.setUserInfo({name: data.name, about: data.occupation})
+    .then(res => {
+      newProfile.setUserInfo({userName: inputName.value, userOccupation:  inputOccupation.value});
+    })
   }
 })
-// const profileConfig = {
-//   profileName: "profile__name",
-//   profileDescription: "profile__occupation"
-// };
-
-
-// const addForm = new PopupWithForm(".popup_type_add-button", (data) => {
-//   const card = new Card (data, ".card__template", (data) => {
-//   imagePopup.open(data)})
-// const cardElement = card.generateCard();
-// cardGrid.addItem(cardElement);
-// });
-// addForm.setEventListeners();
-
-
-
-// buttonAdd.addEventListener("click", () => {addForm.open()});
-
-
+   
 buttonEdit.addEventListener("click", () => {
   const profileInfo = newProfile.getUserInfo();
   inputName.value = profileInfo.name;
   inputOccupation.value = profileInfo.occupation;
   editForm.open();
 });
-
-
 
 editForm.setEventListeners();
