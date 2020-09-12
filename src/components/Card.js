@@ -1,11 +1,15 @@
 export default class Card {
-  constructor({ data, handleCardClick, handleDeleteClick }, cardSelector) {
+  constructor({ data, handleCardClick, handleDeleteClick }, userId, cardSelector) {
     this._name = data.name;
     this._link = data.link;
     this._id = data._id;
+    this._userId = userId;
+    this._owner = data.owner;
+    this._like = data.likes;
     this._cardSelector = cardSelector;
     this._handleDeleteClick = handleDeleteClick;
     this._handleCardClick = handleCardClick;
+    console.log(data);
   };
 
   id() {
@@ -14,11 +18,17 @@ export default class Card {
 
   _getTemplate() {
     const cardElement = document.querySelector(this._cardSelector).content.querySelector(".card__item").cloneNode(true);
+    console.log(this._cardSelector)
 
     this._cardElement = cardElement;
   };
 
   _setEventListeners() {
+    const deleteCardButton = this._cardElement.querySelector('.button__remove');
+    if (this._owner._id !== this._userId) {
+      deleteCardButton.style.display = 'none';
+    }
+    
     this._cardElement.querySelector(".card__image").addEventListener("click", () => { 
       this._handleCardClick({
         name: this._name, 

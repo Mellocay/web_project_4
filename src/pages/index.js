@@ -8,13 +8,6 @@ import { popupEdit, popupAdd, popupImage, formEdit, formAdd, buttonAdd, buttonEd
 import Api from "../components/Api.js";
 import "./index.css";
 
-// function showCard(data) {
-  // const card = new Card (data, ".card__template", (data) => {
-  //   imagePopup.open(data)})
-  // const cardElement = card.generateCard();
-  // cardGrid.addItem(cardElement);
-// }
-
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-4",
   headers: {
@@ -23,19 +16,15 @@ const api = new Api({
   }
 });
 
-// api.getAppInfo().then((res) => {
-//   console.log("data", res);
-//   console.log("initial", res);
-//   const UserId = res._id;
-api.getCardList().then(res => {
+api.getAppInfo().then(([userData, initialCardsData]) => {
+  const userId = userData._id;
   const cardGrid = new Section({
-    items: res,
+    items: initialCardsData,
     renderer: (data) => {
       const card = new Card({
-        data, 
+        data,
         handleCardClick: () => {
           imagePopup.open(data);
-          console.log(imagePopup);
         },
         handleDeleteClick: (cardId) => {
           api.removeCard(cardId)
@@ -43,7 +32,8 @@ api.getCardList().then(res => {
       }, cardsConfig.cardSelector);      
       // const cardElement = card.generateCard();
       cardGrid.addItem(card.generateCard());
-    }
+    },
+    userId,
   }, cardsConfig.placesWrap
   );
 
@@ -80,7 +70,6 @@ api.getCardList().then(res => {
 const newProfile = new UserInfo(".profile__name", ".profile__occupation");
 
 api.getUserInfo().then(res => {
-  console.log("profile!!", data);
   newProfile.setUserInfo({userName: res.name, userOccupation: res.about})
 })
 
@@ -98,8 +87,7 @@ const editForm = new PopupWithForm({
   handleFormSubmit: (data) => {
     api.setUserInfo({name: data.name, about: data.occupation})
     .then(res => {
-      newProfile.setUserInfo({
-        userName: data.name, userOccupation:  data.occupation});
+      newProfile.setUserInfo({userName: data.name, userOccupation:  data.occupation});
     })
   }
 })

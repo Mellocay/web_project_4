@@ -45,7 +45,14 @@ export default class Api {
   }
 
     // DELETE https://around.nomoreparties.co/v1/groupId/cards/cardId
-    removeCard(cardID) { }
+    removeCard(cardID) { 
+      return fetch(this._baseUrl + "/cards/" + `${cardId}`, {
+        headers: this._headers,
+        method: "DELETE",
+      })
+      .then(res => this._checkRes(res))
+      .catch(err => console.log(err))
+    }
 
     // PUT https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
     // DELETE https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
