@@ -80,7 +80,7 @@ api.getCardList().then(res => {
 const newProfile = new UserInfo(".profile__name", ".profile__occupation");
 
 api.getUserInfo().then(res => {
-  console.log("profile!!", res);
+  console.log("profile!!", data);
   newProfile.setUserInfo({userName: res.name, userOccupation: res.about})
 })
 
@@ -98,7 +98,8 @@ const editForm = new PopupWithForm({
   handleFormSubmit: (data) => {
     api.setUserInfo({name: data.name, about: data.occupation})
     .then(res => {
-      newProfile.setUserInfo({userName: inputName.value, userOccupation:  inputOccupation.value});
+      newProfile.setUserInfo({
+        userName: data.name, userOccupation:  data.occupation});
     })
   }
 })
