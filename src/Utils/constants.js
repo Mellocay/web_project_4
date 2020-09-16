@@ -56,7 +56,8 @@ const defaultConfig = {
 const popupConfig = {
   popupEdit: ".popup_type_edit-button",
   popupAdd: ".popup_type_add-button",
-  popupImage: ".popup_type_image"
+  popupImage: ".popup_type_image",
+  popupDelete: ".popup_type_delete"
 };
 
 const profileConfig = {

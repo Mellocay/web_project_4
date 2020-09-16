@@ -46,7 +46,7 @@ export default class Api {
 
     // DELETE https://around.nomoreparties.co/v1/groupId/cards/cardId
     removeCard(cardID) { 
-      return fetch(this._baseUrl + "/cards/" + `${cardId}`, {
+      return fetch(`${this._baseUrl}/cards/${cardId}`, {
         headers: this._headers,
         method: "DELETE",
       })

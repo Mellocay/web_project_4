@@ -28,18 +28,30 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
         },
         handleDeleteClick: (cardId) => {
           api.removeCard(cardId)
-        }
-      }, cardsConfig.cardSelector);      
-      // const cardElement = card.generateCard();
+        },
+      }, 
+      userId,
+      cardsConfig.cardSelector);      
       cardGrid.addItem(card.generateCard());
     },
-    userId,
   }, cardsConfig.placesWrap
   );
 
   cardGrid.renderItems();
 
+function handleDeleteClick(cardId) {
+  return api.removeCard(cardId);
+}
 
+const deleteForm = new PopupWithForm({
+  popupElement: document.querySelector(popupConfig.popupDelete),
+  handleForSubmit: (cardId) => {
+    handleDeleteClick(cardId);
+    deleteForm.close();
+  }
+});
+deleteForm.setEventListeners();
+console.log(deleteForm);
 
   const addForm = new PopupWithForm({
     popupElement: document.querySelector(popupConfig.popupAdd), 

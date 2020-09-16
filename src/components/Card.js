@@ -9,16 +9,14 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._handleDeleteClick = handleDeleteClick;
     this._handleCardClick = handleCardClick;
-    console.log(data);
   };
 
   id() {
-    return this._id();
+    return this._id;
   }
 
   _getTemplate() {
     const cardElement = document.querySelector(this._cardSelector).content.querySelector(".card__item").cloneNode(true);
-    console.log(this._cardSelector)
 
     this._cardElement = cardElement;
   };
@@ -38,7 +36,7 @@ export default class Card {
     this._cardElement.querySelector(".button__like").addEventListener("click", (evt) => {
       evt.target.classList.toggle("button__like_activated");
     })
-    this._cardElement.querySelector(".button__remove").addEventListener("click", () => this._handleDeleteClick(this.id()));
+    this._cardElement.querySelector(".button__remove").addEventListener("click", () => this._handleDeleteClick(this._id()));
   //   this._cardElement.querySelector(".button__remove").addEventListener("click", (evt) => {
   //     evt.target.closest(".card__item").remove();
   //   })
