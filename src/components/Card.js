@@ -16,8 +16,10 @@ export default class Card {
   }
 
 _handleRemoveButtonClick() {
-  this._handleDeleteClick(this.id());
-  this._cardElement.remove();
+  api.removeCard(cardId).then(() => {
+    this._handleDeleteClick(this.id());
+    this._cardElement.remove();
+  })
 }
 
   _getTemplate() {
