@@ -27,7 +27,7 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
           imagePopup.open(data);
         },
         handleDeleteClick: (cardId) => {
-          api.removeCard(cardId)
+          api.removeCard(cardId).then(() => {})
         },
       }, 
       userId,

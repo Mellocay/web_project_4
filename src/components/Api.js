@@ -45,7 +45,7 @@ export default class Api {
   }
 
     // DELETE https://around.nomoreparties.co/v1/groupId/cards/cardId
-    removeCard(cardID) { 
+    removeCard(cardId) { 
       return fetch(`${this._baseUrl}/cards/${cardId}`, {
         headers: this._headers,
         method: "DELETE",
@@ -56,7 +56,7 @@ export default class Api {
 
     // PUT https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
     // DELETE https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
-    changeLikeCardStatus(cardID, like) {
+    changeLikeCardStatus(cardId, like) {
       
      }
 

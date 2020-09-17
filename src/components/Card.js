@@ -15,6 +15,11 @@ export default class Card {
     return this._id;
   }
 
+_handleRemoveButtonClick() {
+  this._handleDeleteClick(this.id());
+  this._cardElement.remove();
+}
+
   _getTemplate() {
     const cardElement = document.querySelector(this._cardSelector).content.querySelector(".card__item").cloneNode(true);
 
@@ -36,7 +41,7 @@ export default class Card {
     this._cardElement.querySelector(".button__like").addEventListener("click", (evt) => {
       evt.target.classList.toggle("button__like_activated");
     })
-    this._cardElement.querySelector(".button__remove").addEventListener("click", () => this._handleDeleteClick(this._id()));
+    this._cardElement.querySelector(".button__remove").addEventListener("click", this._handleRemoveButtonClick.bind(this));
   //   this._cardElement.querySelector(".button__remove").addEventListener("click", (evt) => {
   //     evt.target.closest(".card__item").remove();
   //   })
