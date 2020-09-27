@@ -16,16 +16,14 @@ export default class Card {
   }
 
 _handleRemoveButtonClick() {
-  api.removeCard(cardId).then(() => {
-    this._handleDeleteClick(this.id());
-    this._cardElement.remove();
-  })
+  this._handleDeleteClick(this.id());
+  this._cardElement.remove();
 }
 
   _getTemplate() {
     const cardElement = document.querySelector(this._cardSelector).content.querySelector(".card__item").cloneNode(true);
-
     this._cardElement = cardElement;
+    console.log(this._cardElement);
   };
 
   _setEventListeners() {
@@ -55,7 +53,7 @@ _handleRemoveButtonClick() {
     this._setEventListeners();
     this._cardElement.querySelector(".card__title").textContent = this._name;
     this._cardElement.querySelector(".card__image").style.backgroundImage = `url(${this._link})`;
-  
+    
     return this._cardElement;
   }
 }

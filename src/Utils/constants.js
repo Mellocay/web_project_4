@@ -66,8 +66,9 @@ const profileConfig = {
 };
 
 const cardsConfig = {
-  placesWrap: ".card__items",
-  cardSelector: ".card__template"
+  placesWrap: ".card__items"
 };
 
-export { popupImage, formEdit, formAdd, buttonEdit, buttonAdd, inputName, inputOccupation, initialCards, defaultConfig, popupConfig, profileConfig, cardsConfig };
+const cardSelector = ".card__template";
+
+export { popupImage, formEdit, formAdd, buttonEdit, buttonAdd, inputName, inputOccupation, initialCards, defaultConfig, popupConfig, profileConfig, cardsConfig, cardSelector };

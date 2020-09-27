@@ -4,14 +4,14 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
-import { popupEdit, popupAdd, popupImage, formEdit, formAdd, buttonAdd, buttonEdit, inputName, inputOccupation, initialCards, defaultConfig, popupConfig, profileConfig, cardsConfig } from "../Utils/constants.js";
+import { popupEdit, popupAdd, popupImage, formEdit, formAdd, buttonAdd, buttonDelete, buttonEdit, inputName, inputOccupation, initialCards, defaultConfig, popupConfig, profileConfig, cardsConfig, cardSelector } from "../Utils/constants.js";
 import Api from "../components/Api.js";
 import "./index.css";
 
 const api = new Api({
-  baseUrl: "https://around.nomoreparties.co/v1/group-4",
+  baseUrl: "https://around.nomoreparties.co/v1/group-5",
   headers: {
-    authorization: "3f243dd2-37f2-4509-9805-b98e5f815aea",
+    authorization: "6eeb54a7-daa3-4961-9f3b-d820b89ec651",
     "Content-Type": "application/json"
   }
 });
@@ -27,11 +27,11 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
           imagePopup.open(data);
         },
         handleDeleteClick: (cardId) => {
-          popupDelete.open(cardId);
+          api.removeCard(cardId).then(() => {})
         },
       }, 
       userId,
-      cardsConfig.cardSelector);      
+      cardSelector);      
       cardGrid.addItem(card.generateCard());
     },
   }, cardsConfig.placesWrap
@@ -45,13 +45,17 @@ function handleDeleteClick(cardId) {
 
 const deleteForm = new PopupWithForm({
   popupElement: document.querySelector(popupConfig.popupDelete),
-  handleForSubmit: (cardId) => {
+  handleFormSubmit: (cardId) => {
     handleDeleteClick(cardId);
     deleteForm.close();
   }
 });
 deleteForm.setEventListeners();
-console.log(deleteForm);
+// buttonDelete.addEventListener("click", () => {
+//   debugger;
+//   popupDelete.open(cardId);
+//   api.removeCard(cardId).then(() => {})
+// })
 
   const addForm = new PopupWithForm({
     popupElement: document.querySelector(popupConfig.popupAdd), 
@@ -62,7 +66,7 @@ console.log(deleteForm);
         handleCardClick: () => {
           imagePopup.open(data);
         }
-      }, cardsConfig.cardSelector);
+      }, cardSelector);
   // const cardElement = card.generateCard();
   cardGrid.addItem(card.generateCard())
   });
