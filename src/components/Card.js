@@ -23,7 +23,6 @@ _handleRemoveButtonClick() {
   _getTemplate() {
     const cardElement = document.querySelector(this._cardSelector).content.querySelector(".card__item").cloneNode(true);
     this._cardElement = cardElement;
-    console.log(this._cardElement);
   };
 
   _setEventListeners() {

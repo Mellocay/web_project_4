@@ -66,7 +66,9 @@ deleteForm.setEventListeners();
         handleCardClick: () => {
           imagePopup.open(data);
         }
-      }, cardSelector);
+      }, 
+      userId,
+      cardSelector);
   // const cardElement = card.generateCard();
   cardGrid.addItem(card.generateCard())
   });
