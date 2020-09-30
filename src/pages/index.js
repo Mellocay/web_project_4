@@ -17,11 +17,7 @@ const api = new Api({
 });
 
 const deleteForm = new PopupWithForm({
-  popupElement: document.querySelector(popupConfig.popupDelete),
-  handleFormSubmit: (cardId) => {
-    handleDeleteClick(cardId);
-    deleteForm.close();
-  }
+  popupElement: document.querySelector(popupConfig.popupDelete)
 });
 deleteForm.setEventListeners();
 
@@ -43,7 +39,7 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
     handleFormSubmit: (data) => {
       api.addCard(data).then(data => {
         showCard(data);
-      })
+      });
     }
   });
    
@@ -64,20 +60,20 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
         imagePopup.open(data);
       },
       handleDeleteClick: (cardId) => {
-        api.removeCard(cardId).then(() => {});
+        deleteForm.open(cardId);
+        deleteForm.setSubmitAction(() => {
+          api.removeCard(cardId).then(() => {
+            card.deleteCard();
+            deleteForm.closeNoInput();
+        })
+      })
       },
     }, 
     userId,
     cardSelector);  
 
-  cardGrid.addItem(card.generateCard());
-}
-
-// buttonDelete.addEventListener("click", () => {
-//   debugger;
-//   popupDelete.open(cardId);
-//   api.removeCard(cardId).then(() => {})
-// })
+    cardGrid.addItem(card.generateCard());
+}});
 
 const newProfile = new UserInfo(".profile__name", ".profile__occupation");
 

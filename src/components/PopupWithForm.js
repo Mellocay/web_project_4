@@ -29,4 +29,8 @@ export default class PopupWithForm extends Popup {
     super.close();
     this._formElement.reset();
   }
+
+  setSubmitAction(action) {
+    this._handleSubmitForm = action;
+  }
 }

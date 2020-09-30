@@ -8,6 +8,7 @@ import craterLake from "../images/crater-lake.jpg"
 // const popupEdit = document.querySelector(".popup_type_edit-button");
 // const popupAdd = document.querySelector(".popup_type_add-button");
 const popupImage = document.querySelector(".popup_type_image");
+const popupDelete = document.querySelector(".popup_type_delete");
 
 const formEdit = document.querySelector(".popup__form_type_edit-button");
 const formAdd = document.querySelector(".popup__form_type_add-button");
