@@ -57,10 +57,9 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
         imagePopup.open(data);
       },
       handleDeleteClick: (cardId) => {
-        debugger;
-        console.log(card);
+        //debugger;
         deleteForm.open(cardId);
-        deleteForm.setSubmitAction((cardId) => {
+        deleteForm.setSubmitAction(() => {
           api.removeCard(cardId).then(() => {
             card.deleteCard();
             deleteForm.close();
