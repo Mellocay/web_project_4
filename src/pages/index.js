@@ -49,9 +49,6 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
     addForm.open();
   });
 
-  function handleDeleteClick(cardId) {
-    return api.removeCard(cardId);
-  }
 
   function showCard(data) {
     const card = new Card({
@@ -60,11 +57,13 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
         imagePopup.open(data);
       },
       handleDeleteClick: (cardId) => {
+        debugger;
+        console.log(card);
         deleteForm.open(cardId);
-        deleteForm.setSubmitAction(() => {
+        deleteForm.setSubmitAction((cardId) => {
           api.removeCard(cardId).then(() => {
             card.deleteCard();
-            deleteForm.closeNoInput();
+            deleteForm.close();
         })
       })
       },
