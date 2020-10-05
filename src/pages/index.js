@@ -4,7 +4,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
-import { popupEdit, popupAdd, popupImage, formEdit, formAdd, buttonAdd, buttonDelete, buttonEdit, inputName, inputOccupation, initialCards, defaultConfig, popupConfig, profileConfig, cardsConfig, cardSelector } from "../Utils/constants.js";
+import { popupEdit, popupAdd, popupImage, formEditAvatar, formEdit, formAdd, buttonAdd, buttonDelete, buttonEdit, inputName, inputOccupation, initialCards, defaultConfig, popupConfig, profileConfig, cardsConfig, cardSelector, avatarEditButton, profileAvatar } from "../Utils/constants.js";
 import Api from "../components/Api.js";
 import "./index.css";
 
@@ -102,3 +102,32 @@ buttonEdit.addEventListener("click", () => {
 });
 
 editForm.setEventListeners();
+
+function handleAvatarEdit(data) {
+  api.setUserAvatar({
+    avatar: data.avatarURL
+  })
+  .then(res => {
+    profileAvatar.src = res.avatar;
+  })
+}
+
+const editAvatarForm = new PopupWithForm({
+  popupElement: document.querySelector(popupConfig.popupEditAvatar),
+  handleFormSubmit: (data) => {
+    handleAvatarEdit(data)
+    // api.setUserAvatar({ avatar: data.avatarURL })
+    // .then(res => {
+    //   profileAvatar.src = res.avatar
+    // });
+    }
+});
+   
+avatarEditButton.addEventListener("click", () => {
+  editAvatarForm.open();
+});
+
+editAvatarForm.setEventListeners();
+
+const editAvatarValidator = new FormValidator(defaultConfig, formEditAvatar);
+editAvatarValidator.enableValidation();

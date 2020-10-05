@@ -10,6 +10,7 @@ import craterLake from "../images/crater-lake.jpg"
 const popupImage = document.querySelector(".popup_type_image");
 const popupDelete = document.querySelector(".popup_type_delete");
 
+const formEditAvatar = document.querySelector(".popup__form_type_edit-avatar")
 const formEdit = document.querySelector(".popup__form_type_edit-button");
 const formAdd = document.querySelector(".popup__form_type_add-button");
 
@@ -56,6 +57,7 @@ const defaultConfig = {
 
 const popupConfig = {
   popupEdit: ".popup_type_edit-button",
+  popupEditAvatar: ".popup_type_edit-avatar",
   popupAdd: ".popup_type_add-button",
   popupImage: ".popup_type_image",
   popupDelete: ".popup_type_delete"
@@ -71,5 +73,7 @@ const cardsConfig = {
 };
 
 const cardSelector = ".card__template";
+const profileAvatar = document.querySelector(".profile__image");
+const avatarEditButton = document.querySelector(".profile__image_edit-button");
 
-export { popupImage, formEdit, formAdd, buttonEdit, buttonAdd, inputName, inputOccupation, initialCards, defaultConfig, popupConfig, profileConfig, cardsConfig, cardSelector };
+export { popupImage, formEditAvatar, formEdit, formAdd, buttonEdit, buttonAdd, inputName, inputOccupation, initialCards, defaultConfig, popupConfig, profileConfig, cardsConfig, cardSelector, profileAvatar, avatarEditButton };

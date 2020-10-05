@@ -10,7 +10,8 @@
       <img src="./images/logo.svg" alt="Around the US Logo" class="header__logo">
     </header>
     <section class="profile">
-      <div class="profile__image">
+      <div class="profile__image-section">
+        <img src = "./images/jc-pic.png" class = "profile__image" alt = "profile picture">
         <button class="profile__image_edit-button"></button>
       </div>
       <div class="profile__info">
@@ -24,6 +25,17 @@
       <ul class="card__items">
       </ul>
     </main>
+    <section class="popup popup_type_edit-avatar">
+      <div class="popup__container">
+        <button type="submit" class="button button__close"></button>
+        <form class="popup__form popup__form_type_edit-avatar popup_size_large">
+          <h2 class="popup__title">Change Profile Picture</h2>
+          <input id="avatar-URL" type="url" value="" placeholder="enter avatar link here" class="popup__input popup__input_avatar-URL" name="avatarURL" required minlength="2" maxlength="40">
+          <span id="avatar-URL-error" class="popup__error popup__error_visible"></span>
+          <button type="submit" class="button button__submit button__submit_save button__submit_disabled" disabled>Save</button>
+        </form>
+      </div>
+    </section>
     <section class="popup popup_type_edit-button">
       <div class="popup__container">
         <button type="submit" class="button button__close"></button>
