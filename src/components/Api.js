@@ -56,10 +56,25 @@ export default class Api {
     }
 
     // PUT https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
-    // DELETE https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
-    changeLikeCardStatus(cardId, like) {
-      
+    cardLikeAdd(cardId, like) {
+      return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+        headers: this._headers,
+        method: "PUT"
+      })
+      .then(res => this._checkRes(res))
+      .catch(err => console.log(err))
      }
+
+    // DELETE https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
+    cardLikeRemove(cardId, like) {
+      return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+        headers: this._headers,
+        method: "DELETE"
+      })
+      .then(res => this._checkRes(res))
+      .catch(err => console.log(err))
+     }
+
 
   // PATCH https://around.nomoreparties.co/v1/groupId/users/me
   setUserInfo({name, about}) {
@@ -76,7 +91,17 @@ export default class Api {
   }
 
     // PATCH https://around.nomoreparties.co/v1/groupId/users/me/avatar
-    setUserAvatar({ avatar }) { }
+    setUserAvatar({ avatar }) {
+      return fetch(`${this._baseUrl}/users/me/avatar`, {
+        headers: this._headers,
+        method: "PATCH",
+        body: JSON.stringify({
+          avatar
+        })
+      })
+      .then(res => this._checkRes(res))
+      .catch(err => console.log(err))
+    }
 
 
 
