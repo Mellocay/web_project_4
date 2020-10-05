@@ -77,6 +77,7 @@ const newProfile = new UserInfo(".profile__name", ".profile__occupation");
 
 api.getUserInfo().then(res => {
   newProfile.setUserInfo({userName: res.name, userOccupation: res.about});
+  profileAvatar.src = res.avatar;
 });
 
 const editProfileValidator = new FormValidator(defaultConfig, formEdit);
@@ -105,10 +106,10 @@ editForm.setEventListeners();
 
 function handleAvatarEdit(data) {
   api.setUserAvatar({
-    avatar: data.avatarURL
+    profileAvatar: data.avatarURL
   })
-  .then(res => {
-    profileAvatar.src = res.avatar;
+  .then(data => {
+    profileAvatar.src = data.avatar;
   })
 }
 
