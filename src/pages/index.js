@@ -37,8 +37,10 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
   const addForm = new PopupWithForm({
     popupElement: document.querySelector(popupConfig.popupAdd), 
     handleFormSubmit: (data) => {
+      debugger;
       api.addCard(data).then(data => {
         showCard(data);
+        console.log(card);
       });
     }
   });
@@ -108,8 +110,8 @@ function handleAvatarEdit(data) {
   api.setUserAvatar({
     profileAvatar: data.avatarURL
   })
-  .then(data => {
-    profileAvatar.src = data.avatar;
+  .then(res => {
+    profileAvatar.src = res.avatar;
   })
 }
 

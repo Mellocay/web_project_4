@@ -23,7 +23,7 @@ export default class Api {
       headers: this._headers
     })
     .then(res => this._checkRes(res))
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
   }
 
   getAppInfo() {
