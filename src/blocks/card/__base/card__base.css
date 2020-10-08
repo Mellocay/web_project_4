@@ -1,5 +1,4 @@
 .card__base {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: 1fr;
+  display: flex;
+  justify-content: space-between;
 }

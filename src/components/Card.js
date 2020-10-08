@@ -48,7 +48,7 @@ export default class Card {
     });
 
     this._cardElement.querySelector(".button__like").addEventListener("click", (evt) => {
-      // evt.target.classList.toggle("button__like_activated");
+      evt.target.classList.toggle("button__like_activated");
       this._handleLikeClick(this._id);
     })
 

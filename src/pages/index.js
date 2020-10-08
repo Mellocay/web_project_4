@@ -39,7 +39,6 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
     handleFormSubmit: (data) => {
       api.addCard(data).then(data => {
         showCard(data);
-        console.log(card);
       });
     }
   });
