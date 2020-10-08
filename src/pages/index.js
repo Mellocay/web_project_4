@@ -37,7 +37,6 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
   const addForm = new PopupWithForm({
     popupElement: document.querySelector(popupConfig.popupAdd), 
     handleFormSubmit: (data) => {
-      debugger;
       api.addCard(data).then(data => {
         showCard(data);
         console.log(card);
@@ -59,7 +58,6 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
         imagePopup.open(data);
       },
       handleDeleteClick: (cardId) => {
-        //debugger;
         deleteForm.open(cardId);
         deleteForm.setSubmitAction(() => {
           api.removeCard(cardId).then(() => {
@@ -68,6 +66,16 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
         })
       })
       },
+      handleLikeClick: (cardId) => {
+        if (card.likeButton.classList.contains("button__like_activated")) {
+          card.likeButton.classList.remove("button__like_activated");
+          api.cardLikeRemove(cardId).then(res => card.showLikeCount(res.likes.length))
+        } else {
+          card.likeButton.classList.add("button__like_activated");
+          api.cardLikeAdd(cardId)
+          .then(res => card.showLikeCount(res.likes.length))
+        }
+      }
     }, 
     userId,
     cardSelector);  
@@ -108,7 +116,7 @@ editForm.setEventListeners();
 
 function handleAvatarEdit(data) {
   api.setUserAvatar({
-    profileAvatar: data.avatarURL
+    avatar: data.avatarURL
   })
   .then(res => {
     profileAvatar.src = res.avatar;

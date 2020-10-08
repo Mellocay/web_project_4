@@ -30,7 +30,7 @@
         <button type="submit" class="button button__close"></button>
         <form class="popup__form popup__form_type_edit-avatar popup_size_large">
           <h2 class="popup__title">Change Profile Picture</h2>
-          <input id="avatar-URL" type="url" value="" placeholder="enter avatar link here" class="popup__input popup__input_avatar-URL" name="avatarURL" required minlength="2" maxlength="40">
+          <input id="avatar-URL" type="url" value="" placeholder="enter avatar link here" class="popup__input popup__input_avatar-URL" name="avatarURL" required minlength="2">
           <span id="avatar-URL-error" class="popup__error popup__error_visible"></span>
           <button type="submit" class="button button__submit button__submit_save button__submit_disabled" disabled>Save</button>
         </form>
@@ -90,8 +90,10 @@
         </div>
         <div class="card__base">
           <h3 class="card__title"></h3>
-          <button class="button button__like"></button>
-          <p class="card__like-count"></p>
+          <div class="card__likes">  
+            <button class="button button__like"></button>
+            <p class="card__like-count"></p>
+          </div>
         </div>
       </li>
     </template>

@@ -1,5 +1,5 @@
 export default class Card {
-  constructor({ data, handleCardClick, handleDeleteClick }, userId, cardSelector) {
+  constructor({ data, handleCardClick, handleDeleteClick, handleLikeClick }, userId, cardSelector) {
     this._name = data.name;
     this._link = data.link;
     this._id = data._id;
@@ -9,15 +9,29 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._handleDeleteClick = handleDeleteClick;
     this._handleCardClick = handleCardClick;
+    this._handleLikeClick = handleLikeClick;
+    this._cardElement = this._getTemplate();
+    this.likeButton = this._cardElement.querySelector(".button__like");
   };
 
   id() {
     return this._id;
   }
 
+  changeLikes() {
+    if (this._likes.some((like) => like._id === this._userId)) {
+      this._cardElement.querySelector(".button__like").classList.add("button__like_activated");
+    }
+  }
+
+  showLikeCount(likeCount) {
+    this._cardElement.querySelector(".card__like-count").textContent = likeCount;
+  }
+
   _getTemplate() {
     const cardElement = document.querySelector(this._cardSelector).content.querySelector(".card__item").cloneNode(true);
     this._cardElement = cardElement;
+    return this._cardElement;
   };
 
   _setEventListeners() {
@@ -34,7 +48,7 @@ export default class Card {
     });
 
     this._cardElement.querySelector(".button__like").addEventListener("click", (evt) => {
-      evt.target.classList.toggle("button__like_activated");
+      // evt.target.classList.toggle("button__like_activated");
       this._handleLikeClick(this._id);
     })
 
@@ -47,21 +61,12 @@ export default class Card {
     this._cardElement = null;
   }
 
-  _changeLikes() {
-    if (this._likes.some((like) => like._id === this._userId)) {
-      this._card.querySelector(".button__like").classList.add("card__like-button_clicked");
-    }
-  }
-
-  showLikeCount(likeCount) {
-    this._card.querySelector(".card__like-count").textContent = likeCount;
-  }
-
   generateCard() {
     this._getTemplate();
     this._setEventListeners();
     this._cardElement.querySelector(".card__title").textContent = this._name;
     this._cardElement.querySelector(".card__image").style.backgroundImage = `url(${this._link})`;
+    this.showLikeCount
     
     return this._cardElement;
   }
