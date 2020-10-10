@@ -18,8 +18,9 @@ export default class Card {
     return this._id;
   }
 
-  changeLikes() {
-    if (this._likes.some((like) => like._id === this._userId)) {
+  _renderLikes() {
+    debugger;
+    if (this._likes.some((like) => this._likes._id === this._userId)) {
       this._cardElement.querySelector(".button__like").classList.add("button__like_activated");
     }
   }
@@ -66,7 +67,8 @@ export default class Card {
     this._setEventListeners();
     this._cardElement.querySelector(".card__title").textContent = this._name;
     this._cardElement.querySelector(".card__image").style.backgroundImage = `url(${this._link})`;
-    this.showLikeCount
+    this.showLikeCount(this._likes.length);
+    this._renderLikes();
     
     return this._cardElement;
   }

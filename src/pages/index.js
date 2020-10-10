@@ -31,7 +31,7 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
     renderer: showCard
   }, cardsConfig.placesWrap
   );
- 
+  
   cardGrid.renderItems();
 
   const addForm = new PopupWithForm({
