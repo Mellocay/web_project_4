@@ -5,10 +5,7 @@ import haystackRock from "../images/haystack-rock.jpg";
 import ecolaPark from "../images/ecola-park.jpg"
 import craterLake from "../images/crater-lake.jpg"
 
-const popupEdit = document.querySelector(".popup_type_edit-button");
-const popupAdd = document.querySelector(".popup_type_add-button");
-const popupImage = document.querySelector(".popup_type_image");
-const popupDelete = document.querySelector(".popup_type_delete");
+// const popupImage = document.querySelector(".popup_type_image");
 
 const formEditAvatar = document.querySelector(".popup__form_type_edit-avatar")
 const formEdit = document.querySelector(".popup__form_type_edit-button");
@@ -77,4 +74,4 @@ const profileAvatar = document.querySelector(".profile__image");
 const avatarEditButton = document.querySelector(".profile__image_edit-button");
 const submitButton = document.querySelector(".button__submit");
 
-export {popupAdd, popupEdit, popupImage, formEditAvatar, formEdit, formAdd, buttonEdit, buttonAdd, inputName, inputOccupation, initialCards, defaultConfig, popupConfig, profileConfig, cardsConfig, cardSelector, profileAvatar, avatarEditButton, submitButton };
+export { formEditAvatar, formEdit, formAdd, buttonEdit, buttonAdd, inputName, inputOccupation, initialCards, defaultConfig, popupConfig, profileConfig, cardsConfig, cardSelector, profileAvatar, avatarEditButton, submitButton };
