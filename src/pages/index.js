@@ -37,7 +37,8 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
   const cardGrid = new Section({
     items: initialCardsData,
     renderer: showCard
-  }, cardsConfig.placesWrap
+  }, 
+  cardsConfig.placesWrap
   )
   
   cardGrid.renderItems();
@@ -47,6 +48,7 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
     handleFormSubmit: (data) => {
       api.addCard(data).then(data => {
         showCard(data);
+        addForm.close();
       })
       .catch(err => console.log(err))
     }
@@ -92,7 +94,7 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
     cardSelector);  
 
     cardGrid.addItem(card.generateCard());
-}});
+}}).catch(err => console.log(err));
 
 const newProfile = new UserInfo(".profile__name", ".profile__occupation");
 
@@ -114,6 +116,7 @@ const editForm = new PopupWithForm({
     api.setUserInfo({name: data.name, about: data.occupation})
     .then(res => {
       newProfile.setUserInfo({userName: data.name, userOccupation:  data.occupation});
+      editForm.close();
     })
     .catch(err => console.log(err))
     loading(false);
@@ -136,6 +139,7 @@ function handleAvatarEdit(data) {
   })
   .then(res => {
     profileAvatar.src = res.avatar;
+    editAvatarForm.close();
   })
   .catch(err => console.log(err));
   loading(true);

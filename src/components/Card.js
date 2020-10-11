@@ -14,7 +14,7 @@ export default class Card {
     this.likeButton = this._cardElement.querySelector(".button__like");
   };
 
-  id() {
+  getId() {
     return this._id;
   }
 

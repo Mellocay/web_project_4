@@ -6,7 +6,6 @@ export default class Api {
 
   _checkRes(res) {
     return (res.ok ? res.json() : Promise.reject("Error!" + res.statusText + res.status));
-    console.log("checked");
   }
 
   //other methods for working with the API
