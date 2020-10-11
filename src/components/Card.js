@@ -19,8 +19,7 @@ export default class Card {
   }
 
   _renderLikes() {
-    debugger;
-    if (this._likes.some((like) => this._likes._id === this._userId)) {
+    if (this._likes.some((like) => like._id === this._userId)) {
       this._cardElement.querySelector(".button__like").classList.add("button__like_activated");
     }
   }

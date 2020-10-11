@@ -4,9 +4,17 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
-import { popupEdit, popupAdd, popupImage, formEditAvatar, formEdit, formAdd, buttonAdd, buttonDelete, buttonEdit, inputName, inputOccupation, initialCards, defaultConfig, popupConfig, profileConfig, cardsConfig, cardSelector, avatarEditButton, profileAvatar } from "../Utils/constants.js";
+import { popupEdit, popupAdd, popupImage, formEditAvatar, formEdit, formAdd, buttonAdd, buttonDelete, buttonEdit, inputName, inputOccupation, initialCards, defaultConfig, popupConfig, profileConfig, cardsConfig, cardSelector, submitButton, avatarEditButton, profileAvatar } from "../Utils/constants.js";
 import Api from "../components/Api.js";
 import "./index.css";
+
+function loading(isLoading) {
+  if (isLoading) {
+    submitButton.textContent = "Saving...";
+  } else {
+    submitButton.textContent = "Save";
+  }
+}
 
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-5",
@@ -30,16 +38,17 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
     items: initialCardsData,
     renderer: showCard
   }, cardsConfig.placesWrap
-  );
+  )
   
   cardGrid.renderItems();
-
+  
   const addForm = new PopupWithForm({
     popupElement: document.querySelector(popupConfig.popupAdd), 
     handleFormSubmit: (data) => {
       api.addCard(data).then(data => {
         showCard(data);
-      });
+      })
+      .catch(err => console.log(err))
     }
   });
    
@@ -63,16 +72,19 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
             card.deleteCard();
             deleteForm.close();
         })
+        .catch(err => console.log(err))
       })
       },
       handleLikeClick: (cardId) => {
         if (card.likeButton.classList.contains("button__like_activated")) {
           card.likeButton.classList.remove("button__like_activated");
           api.cardLikeRemove(cardId).then(res => card.showLikeCount(res.likes.length))
+          .catch(err => console.log(err))
         } else {
           card.likeButton.classList.add("button__like_activated");
           api.cardLikeAdd(cardId)
           .then(res => card.showLikeCount(res.likes.length))
+          .catch(err => console.log(err))
         }
       }
     }, 
@@ -87,7 +99,8 @@ const newProfile = new UserInfo(".profile__name", ".profile__occupation");
 api.getUserInfo().then(res => {
   newProfile.setUserInfo({userName: res.name, userOccupation: res.about});
   profileAvatar.src = res.avatar;
-});
+})
+.catch(err => console.log(err));
 
 const editProfileValidator = new FormValidator(defaultConfig, formEdit);
 editProfileValidator.enableValidation();
@@ -97,10 +110,13 @@ addCardValidator.enableValidation();
 const editForm = new PopupWithForm({
   popupElement: document.querySelector(popupConfig.popupEdit),
   handleFormSubmit: (data) => {
+    loading(true);
     api.setUserInfo({name: data.name, about: data.occupation})
     .then(res => {
       newProfile.setUserInfo({userName: data.name, userOccupation:  data.occupation});
-    });
+    })
+    .catch(err => console.log(err))
+    loading(false);
   }
 });
    
@@ -114,12 +130,15 @@ buttonEdit.addEventListener("click", () => {
 editForm.setEventListeners();
 
 function handleAvatarEdit(data) {
+  loading(false);
   api.setUserAvatar({
     avatar: data.avatarURL
   })
   .then(res => {
     profileAvatar.src = res.avatar;
   })
+  .catch(err => console.log(err));
+  loading(true);
 }
 
 const editAvatarForm = new PopupWithForm({

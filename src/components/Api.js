@@ -15,7 +15,6 @@ export default class Api {
       headers: this._headers
     })
     .then(res => this._checkRes(res))
-    .catch(err => console.log(err))
   }
 
   getUserInfo() {
@@ -23,7 +22,6 @@ export default class Api {
       headers: this._headers
     })
     .then(res => this._checkRes(res))
-    .catch(err => console.log(err));
   }
 
   getAppInfo() {
@@ -41,7 +39,6 @@ export default class Api {
       }),
     })
     .then(res => this._checkRes(res))
-    .catch(err => console.log(err))
   }
 
   // DELETE https://around.nomoreparties.co/v1/groupId/cards/cardId
@@ -52,7 +49,6 @@ export default class Api {
       method: "DELETE",
     })
     .then(res => this._checkRes(res))
-    .catch(err => console.log(err))
   }
 
   // PUT https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
@@ -62,7 +58,6 @@ export default class Api {
       method: "PUT"
     })
     .then(res => this._checkRes(res))
-    .catch(err => console.log(err))
   }
 
   // DELETE https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
@@ -72,7 +67,6 @@ export default class Api {
       method: "DELETE"
     })
     .then(res => this._checkRes(res))
-    .catch(err => console.log(err))
   }
 
 
@@ -87,7 +81,6 @@ export default class Api {
       }),
     })
     .then(res => this._checkRes(res))
-    .catch(err => console.log(err))
   }
 
   // PATCH https://around.nomoreparties.co/v1/groupId/users/me/avatar
@@ -100,7 +93,6 @@ export default class Api {
       })
     })
     .then(res => this._checkRes(res))
-    .catch(err => console.log(err))
   }
 }
 
