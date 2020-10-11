@@ -22,6 +22,14 @@ function loading(isLoading, popup) {
   }
 }
 
+function deleting(isDeleting, popup) {
+  if (isDeleting) {
+    popup.querySelector(".button__submit").textContent = "Deleting...";
+  } else {
+    popup.querySelector(".button__submit").textContent = "Deleted";
+  }
+}
+
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-5",
   headers: {
@@ -77,8 +85,10 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
       handleDeleteClick: (cardId) => {
         deleteForm.open(cardId);
         deleteForm.setSubmitAction(() => {
+          deleting(true, popupDelete);
           api.removeCard(cardId).then(() => {
             card.deleteCard();
+            deleting(false, popupDelete);
             deleteForm.close();
         })
         .catch(err => console.log(err))
