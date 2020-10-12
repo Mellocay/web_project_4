@@ -81,7 +81,7 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
   
   buttonAdd.addEventListener("click", () => {
     addForm.open();
-    popupAdd.querySelector(".button__submit").textContent = "create";
+    popupAdd.querySelector(".button__submit").textContent = "Create";
   });
 
 

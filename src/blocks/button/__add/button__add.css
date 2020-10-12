@@ -15,5 +15,6 @@
     width: 282px;
     height: 50px;
     grid-column: span 2;
+    grid-row: 3;
   }
 }
