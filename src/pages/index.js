@@ -22,9 +22,17 @@ function loading(isLoading, popup) {
   }
 }
 
+function creating(isLoading, popup) {
+  if (isLoading) {
+    popup.querySelector(".button__submit").textContent = "Creating...";
+  } else {
+    popup.querySelector(".button__submit").textContent = "Enjoy!";
+  }
+}
+
 function deleting(isDeleting, popup) {
   if (isDeleting) {
-    popup.querySelector(".button__submit").textContent = "going, going...";
+    popup.querySelector(".button__submit").textContent = "Going, going...";
   } else {
     popup.querySelector(".button__submit").textContent = "Gone!";
   }
@@ -60,7 +68,7 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
   const addForm = new PopupWithForm({
     popupElement: document.querySelector(popupConfig.popupAdd), 
     handleFormSubmit: (data) => {
-      loading(true, popupAdd);
+      creating(true, popupAdd);
       api.addCard(data).then(data => {
         showCard(data);
         addForm.close();
@@ -113,7 +121,7 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
     cardSelector);  
 
     cardGrid.addItem(card.generateCard());
-    loading(false, popupAdd);
+    creating(false, popupAdd);
 
     const newProfile = new UserInfo(".profile__name", ".profile__occupation");
     
