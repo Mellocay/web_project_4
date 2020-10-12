@@ -18,7 +18,7 @@ function loading(isLoading, popup) {
   if (isLoading) {
     popup.querySelector(".button__submit").textContent = "Saving...";
   } else {
-    popup.querySelector(".button__submit").textContent = "Saved";
+    popup.querySelector(".button__submit").textContent = "Save";
   }
 }
 
@@ -73,6 +73,7 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
   
   buttonAdd.addEventListener("click", () => {
     addForm.open();
+    popupAdd.querySelector(".button__submit").textContent = "create";
   });
 
 
@@ -84,6 +85,7 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
       },
       handleDeleteClick: (cardId) => {
         deleteForm.open(cardId);
+        popupDelete.querySelector(".button__submit").textContent = "Yes";
         deleteForm.setSubmitAction(() => {
           deleting(true, popupDelete);
           api.removeCard(cardId).then(() => {
@@ -115,12 +117,9 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
 
     const newProfile = new UserInfo(".profile__name", ".profile__occupation");
     
-    api.getUserInfo().then(res => {
-      newProfile.setUserInfo({userName: res.name, userOccupation: res.about});
-      profileAvatar.src = res.avatar;
-    })
-    .catch(err => console.log(err));
-    
+    newProfile.setUserInfo({userName: userData.name, userOccupation: userData.about});
+    profileAvatar.src = userData.avatar;
+        
     const editForm = new PopupWithForm({
       popupElement: document.querySelector(popupConfig.popupEdit),
       handleFormSubmit: (data) => {
