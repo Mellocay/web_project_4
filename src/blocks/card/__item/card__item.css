@@ -10,6 +10,10 @@
   margin-right: 0;
 }
 
+.card__item:hover {
+  transform: scale(1.05);
+}
+
 @media screen and (min-width: 608px) and (max-width: 898px) {
   .card__item:nth-child(2n) {
     margin-right: 0;
