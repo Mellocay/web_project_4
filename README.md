@@ -22,9 +22,11 @@ For Project 7, I had to dive deeper into my understanding of the code and why it
 
 Project 8 divided the code up into even more modules.  They make the code easier to work with since each module has it's own function.
 
+In project 9 I added communication to a server.  I send requests to get all the picture cards from all the students.  The cards now have a like count and the likes are saved to the server.  The cards can be added to and deleted from the server.  I enjoyed adding my own flair to the delete card popup.  This was a tough project, but it was worth it!
+
 **Conclusion**
 
-Thank you for reading and enjoy the site.
+Thank you for reading and I hope you enjoy the site!
 
 
 
