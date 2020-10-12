@@ -24,9 +24,9 @@ function loading(isLoading, popup) {
 
 function deleting(isDeleting, popup) {
   if (isDeleting) {
-    popup.querySelector(".button__submit").textContent = "Deleting...";
+    popup.querySelector(".button__submit").textContent = "going, going...";
   } else {
-    popup.querySelector(".button__submit").textContent = "Deleted";
+    popup.querySelector(".button__submit").textContent = "Gone!";
   }
 }
 
@@ -113,39 +113,41 @@ api.getAppInfo().then(([userData, initialCardsData]) => {
     cardGrid.addItem(card.generateCard());
     loading(false, popupAdd);
 
+    const newProfile = new UserInfo(".profile__name", ".profile__occupation");
+    
+    api.getUserInfo().then(res => {
+      newProfile.setUserInfo({userName: res.name, userOccupation: res.about});
+      profileAvatar.src = res.avatar;
+    })
+    .catch(err => console.log(err));
+    
+    const editForm = new PopupWithForm({
+      popupElement: document.querySelector(popupConfig.popupEdit),
+      handleFormSubmit: (data) => {
+        loading(true, popupEdit);
+        api.setUserInfo({name: data.name, about: data.occupation})
+        .then(res => {
+          newProfile.setUserInfo({userName: data.name, userOccupation:  data.occupation});
+        })
+        .then(res => {
+          loading(false, popupEdit); 
+          editForm.close();
+        })
+        .catch(err => console.log(err))
+      }
+    });
+    
+    buttonEdit.addEventListener("click", () => {
+      const profileInfo = newProfile.getUserInfo();
+      inputName.value = profileInfo.name;
+      inputOccupation.value = profileInfo.occupation;
+      editForm.open();
+    });
+    
+    editForm.setEventListeners();
+
 }}).catch(err => console.log(err));
-  
-const newProfile = new UserInfo(".profile__name", ".profile__occupation");
-api.getUserInfo().then(res => {
-  newProfile.setUserInfo({userName: res.name, userOccupation: res.about});
-  profileAvatar.src = res.avatar;
-})
-.catch(err => console.log(err));
 
-const editForm = new PopupWithForm({
-  popupElement: document.querySelector(popupConfig.popupEdit),
-  handleFormSubmit: (data) => {
-    loading(true, popupEdit);
-    api.setUserInfo({name: data.name, about: data.occupation})
-    .then(res => {
-      newProfile.setUserInfo({userName: data.name, userOccupation:  data.occupation});
-    })
-    .then(res => {
-      loading(false, popupEdit); 
-      editForm.close();
-    })
-    .catch(err => console.log(err))
-  }
-});
-
-buttonEdit.addEventListener("click", () => {
-  const profileInfo = newProfile.getUserInfo();
-  inputName.value = profileInfo.name;
-  inputOccupation.value = profileInfo.occupation;
-  editForm.open();
-});
-
-editForm.setEventListeners();
 
 const editProfileValidator = new FormValidator(defaultConfig, formEdit);
 editProfileValidator.enableValidation();
