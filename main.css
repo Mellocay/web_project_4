@@ -18,7 +18,7 @@
 .button__text{font-size:18px;line-height:22px;text-align:center;margin:0 auto;padding:0;color:#fff}
 .button{padding:0;box-sizing:border-box}.button:hover{opacity:.6;cursor:pointer}
 .card__items{list-style:none;padding:0;display:flex;justify-content:center;flex-wrap:wrap;margin:0}
-.card__item{border-radius:10px;width:282px;background-color:#fff;margin:0 18px 21px 0;position:relative}.card__item:nth-child(3n){margin-right:0}@media screen and (min-width:608px) and (max-width:898px){.card__item:nth-child(2n){margin-right:0}.card__item:nth-child(3n){margin-right:18px}.card__item:last-child{margin-right:0}}@media screen and (min-width:0) and (max-width:607px){.card__item{margin:0 10px 20px}.card__item:nth-child(3n){margin-right:10px}}
+.card__item{border-radius:10px;width:282px;background-color:#fff;margin:0 18px 21px 0;position:relative}.card__item:nth-child(3n){margin-right:0}.card__item:hover{transform:scale(1.05)}@media screen and (min-width:608px) and (max-width:898px){.card__item:nth-child(2n){margin-right:0}.card__item:nth-child(3n){margin-right:18px}.card__item:last-child{margin-right:0}}@media screen and (min-width:0) and (max-width:607px){.card__item{margin:0 10px 20px}.card__item:nth-child(3n){margin-right:10px}}
 .card__image{width:282px;height:282px;min-height:282px;background-size:cover;background-position:50%;background-repeat:no-repeat;border-top-right-radius:10px;border-top-left-radius:10px}.card__image:hover{cursor:pointer}
 .card__base{display:flex;justify-content:space-between}
 .card__title{max-width:205px;font-weight:900;font-size:24px;line-height:29px;margin:25px 0 25px 21px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
